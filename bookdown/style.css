@@ -13,6 +13,12 @@ pre code {
   white-space: inherit;
 }
 
-#header {
+#header,
+h1 {
+  display: none;
+}
+
+.caption,
+.header-section-number {
   display: none;
 }

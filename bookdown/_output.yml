@@ -3,9 +3,7 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">Processamento de linguagem Natural</a></li>
-      after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+        <li><a href="./">Processamento de Linguagem Natural</a></li>
     download: ["pdf", "epub"]
 bookdown::pdf_book:
   includes:
