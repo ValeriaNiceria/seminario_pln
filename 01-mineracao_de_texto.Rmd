@@ -11,13 +11,13 @@ Atualmente, vivemos na era do Big Data, ou seja, estamos gerando dados a todo mo
 Agora, que já sabemos que é possível obter informações, de um grande volume de textos, vejamos como é o processo de obtenção dessas informações:
 
 - **Começar com uma pergunta:**
-    Primeiramente, devemos ter uma pergunta que queremos responder, como por exemplo: _O que as pessoas que estão falando sobre data science?_
+    Primeiramente, devemos ter uma pergunta que queremos responder, como, por exemplo: _O que as pessoas que estão falando sobre data science?_
 
 - **Obter os dados:**
-  Agora que já temos uma pergunta, precisamos conseguir os dados que à respondam, sendo assim, irei utilizar como fonte de dados, o que as pessoas estão conversando no Twitter.
+  Agora que já temos uma pergunta, precisamos conseguir os dados que a respondam, sendo assim, irei utilizar como fonte de dados, o que as pessoas estão conversando no Twitter.
 
 - **Limpar:**
-  E com os nossos dados em mãos, iremos realizar outra etapa do processo de mineração de dados, que é a limpeza dos nossos dados, removendo caracteres especiais, como acentos, pontuações, colocando todas as palavras em uma só estrutura, como por exemplo, maiúsculo ou minúsculo e remover todas palavras de ligação, conhecidas como **stopwords**, como: _a, e, os, de, com, etc_. Que serão irrelevantes para a pergunta que queremos responder.
+  E com os nossos dados em mãos, iremos realizar outra etapa do processo de mineração de dados, que é a limpeza dos nossos dados, removendo caracteres especiais, como acentos, pontuações, colocando todas as palavras em uma só estrutura, como, por exemplo, maiúsculo ou minúsculo e remover todas as palavras de ligação, conhecidas como **stopwords**, como: _a, e, os, de, com, etc_. Que serão irrelevantes para a pergunta que queremos responder.
   
 - **Analisar:**
 
