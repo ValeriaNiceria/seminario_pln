@@ -20,6 +20,7 @@ Agora, que já sabemos que é possível obter informações, de um grande volume
   E com os nossos dados em mãos, iremos realizar outra etapa do processo de mineração de dados, que é a limpeza dos nossos dados, removendo caracteres especiais, como acentos, pontuações, colocando todas as palavras em uma só estrutura, como, por exemplo, maiúsculo ou minúsculo e remover todas as palavras de ligação, conhecidas como **stopwords**, como: _a, e, os, de, com, etc_. Que serão irrelevantes para a pergunta que queremos responder.
   
 - **Analisar:**
+  Agora, com os nossos dados prontos, iremos realizar a parte mais divertida, que é analisar os nossos dados, onde iremos aplicar diversas técnicas e verificar se com o dados que possuímos, poderemos responder à pergunta que nos motivou a analisar esses dados.
 
 - **Visualizar:**
 
