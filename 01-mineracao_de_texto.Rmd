@@ -37,7 +37,7 @@ datascience_tweet <- search_tweets(
 
 **Visualizando a frequência de tweets, em um intervalo de tempo:**
 
-```{r eval=TRUE}
+```{r eval=FALSE}
 datascience_tweet %>% 
   ts_plot("3 hours") +
   ggplot2::theme_minimal() +
