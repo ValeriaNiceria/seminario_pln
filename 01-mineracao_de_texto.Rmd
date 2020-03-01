@@ -23,6 +23,7 @@ Agora, que já sabemos que é possível obter informações, de um grande volume
   Agora, com os nossos dados prontos, iremos realizar uma das partes mais divertidas, que é analisar os nossos dados, onde iremos aplicar diversas técnicas e verificar se com o dados que possuímos, poderemos responder à pergunta que nos motivou a analisar esses dados.
 
 - **Visualizar:**
+  Nessa etapa, poderemos visualizar o resultado da nossa análise e assim gerar diversas opções de gráficos, como, por exemplo, nuvem de palavras.
 
 - **Extrair conhecimento:**
 
