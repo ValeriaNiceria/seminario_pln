@@ -66,7 +66,7 @@ datascience_tweet <- search_tweets(
 )
 ```
 
-E essas são as primeiras linhas da busca utilizando a API:
+E essas são as primeiras linhas da busca:
 ```{r eval=TRUE, echo=FALSE,cache=FALSE,  comment=FALSE, warning=FALSE,message=FALSE}
 library(DT)
 library(tidyverse)
@@ -102,3 +102,10 @@ datascience_tweet %>%
 ```
 
 ![](_bookdown_files/bookdown_files/figure-html/freq_twitter_1hora.png)
+
+Agora, que conhecendo um pouco os dados que possuímos, vamos começar a mineração dos textos e para isso iremos pegar a (coluna) texto e atribuir a uma variável.
+ 
+
+```{r eval=FALSE}
+datascience_texto <- datascience_tweet$text
+```
