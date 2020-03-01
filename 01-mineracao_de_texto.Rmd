@@ -2,13 +2,28 @@
 
 ![](_bookdown_files/bookdown_files/figure-html/mineracao.png)
 
-## O que é mineração de texto?
+## O que é Mineração de Textos?
 
 Atualmente, vivemos na era do Big Data, ou seja, estamos gerando dados a todo momento, porém, esses dados, na maioria das vezes, são dados não estruturados, como notícias, emails e documentos de forma geral. E mineração de textos ou do inglês _Text Mining_, é processo utilizado para extrair informações, dessa grande massa de dados.
 
 ![](_bookdown_files/bookdown_files/figure-html/ciclo_mineracao.png)
 
-Agora, que já sabemos que é possível obter informações, de um grande volume de textos, vejamos como é o processo de obtenção dessas informações. Primeiramente, devemos ter uma pergunta que queremos responder, como no exemplo que irei utilizar nesse seminário, que é, _O que as pessoas que estão falando sobre data science?_, agora que já temos uma dúvida, precisamos conseguir os dados que respondam a nossa pergunta, sendo assim, irei utilizar como fonte de dados, o que as pessoas estão conversando no twitter e com os nossos dados em mãos, iremos realizar outra etapa do processo de mineração de dados, que é a limpeza dos nossos dados, removendo caracteres especiais, como acentos e pontos, colocando todas as palavras em uma só estrutura, como por exemplo, tudo em minusculo e remover todas palavras de ligação, conhecidas como stopwords, como por exemplo: a, e, os, de, com, etc. Que serão irrelevantes para a pergunta que queremos responder.
+Agora, que já sabemos que é possível obter informações, de um grande volume de textos, vejamos como é o processo de obtenção dessas informações:
+
+- **Começar com uma pergunta:**
+    Primeiramente, devemos ter uma pergunta que queremos responder, como por exemplo: _O que as pessoas que estão falando sobre data science?_
+
+- **Obter os dados:**
+  Agora que já temos uma pergunta, precisamos conseguir os dados que à respondam, sendo assim, irei utilizar como fonte de dados, o que as pessoas estão conversando no Twitter.
+
+- **Limpar:**
+  E com os nossos dados em mãos, iremos realizar outra etapa do processo de mineração de dados, que é a limpeza dos nossos dados, removendo caracteres especiais, como acentos, pontuações, colocando todas as palavras em uma só estrutura, como por exemplo, maiúsculo ou minúsculo e remover todas palavras de ligação, conhecidas como **stopwords**, como: _a, e, os, de, com, etc_. Que serão irrelevantes para a pergunta que queremos responder.
+  
+- **Analisar:**
+
+- **Visualizar:**
+
+- **Extrair conhecimento:**
 
 **Instalando os pacotes necessários:**
 

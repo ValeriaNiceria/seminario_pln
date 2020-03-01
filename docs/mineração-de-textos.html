@@ -136,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#aplicações"><i class="fa fa-check"></i><b>1.2</b> Aplicações:</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="mineração-de-textos.html"><a href="mineração-de-textos.html"><i class="fa fa-check"></i><b>2</b> Mineração de Textos</a><ul>
-<li class="chapter" data-level="2.1" data-path="mineração-de-textos.html"><a href="mineração-de-textos.html#o-que-é-mineração-de-texto"><i class="fa fa-check"></i><b>2.1</b> O que é mineração de texto?</a></li>
+<li class="chapter" data-level="2.1" data-path="mineração-de-textos.html"><a href="mineração-de-textos.html#o-que-é-mineração-de-textos"><i class="fa fa-check"></i><b>2.1</b> O que é Mineração de Textos?</a></li>
 </ul></li>
 </ul>
 
@@ -158,11 +158,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="mineração-de-textos" class="section level1">
 <h1><span class="header-section-number">Chapter 2</span> Mineração de Textos</h1>
 <p><img src="_bookdown_files/bookdown_files/figure-html/mineracao.png" /></p>
-<div id="o-que-é-mineração-de-texto" class="section level2">
-<h2><span class="header-section-number">2.1</span> O que é mineração de texto?</h2>
+<div id="o-que-é-mineração-de-textos" class="section level2">
+<h2><span class="header-section-number">2.1</span> O que é Mineração de Textos?</h2>
 <p>Atualmente, vivemos na era do Big Data, ou seja, estamos gerando dados a todo momento, porém, esses dados, na maioria das vezes, são dados não estruturados, como notícias, emails e documentos de forma geral. E mineração de textos ou do inglês <em>Text Mining</em>, é processo utilizado para extrair informações, dessa grande massa de dados.</p>
 <p><img src="_bookdown_files/bookdown_files/figure-html/ciclo_mineracao.png" /></p>
-<p>Agora, que já sabemos que é possível obter informações, de um grande volume de textos, vejamos como é o processo de obtenção dessas informações. Primeiramente, devemos ter uma pergunta que queremos responder, como no exemplo que irei utilizar nesse seminário, que é, <em>O que as pessoas que estão falando sobre data science?</em>, agora que já temos uma dúvida, precisamos conseguir os dados que respondam a nossa pergunta, sendo assim, irei utilizar como fonte de dados, o que as pessoas estão conversando no twitter e com os nossos dados em mãos, iremos realizar outra etapa do processo de mineração de dados, que é a limpeza dos nossos dados, removendo caracteres especiais, como acentos e pontos, colocando todas as palavras em uma só estrutura, como por exemplo, tudo em minusculo e remover todas palavras de ligação, conhecidas como stopwords, como por exemplo: a, e, os, de, com, etc. Que serão irrelevantes para a pergunta que queremos responder.</p>
+<p>Agora, que já sabemos que é possível obter informações, de um grande volume de textos, vejamos como é o processo de obtenção dessas informações:</p>
+<ul>
+<li><p><strong>Começar com uma pergunta:</strong>
+Primeiramente, devemos ter uma pergunta que queremos responder, como por exemplo: <em>O que as pessoas que estão falando sobre data science?</em></p></li>
+<li><p><strong>Obter os dados:</strong>
+Agora que já temos uma pergunta, precisamos conseguir os dados que à respondam, sendo assim, irei utilizar como fonte de dados, o que as pessoas estão conversando no Twitter.</p></li>
+<li><p><strong>Limpar:</strong>
+E com os nossos dados em mãos, iremos realizar outra etapa do processo de mineração de dados, que é a limpeza dos nossos dados, removendo caracteres especiais, como acentos, pontuações, colocando todas as palavras em uma só estrutura, como por exemplo, maiúsculo ou minúsculo e remover todas palavras de ligação, conhecidas como <strong>stopwords</strong>, como: <em>a, e, os, de, com, etc</em>. Que serão irrelevantes para a pergunta que queremos responder.</p></li>
+<li><p><strong>Analisar:</strong></p></li>
+<li><p><strong>Visualizar:</strong></p></li>
+<li><p><strong>Extrair conhecimento:</strong></p></li>
+</ul>
 <p><strong>Instalando os pacotes necessários:</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;tm&quot;</span>)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&quot;rtweet&quot;</span>)</a>
