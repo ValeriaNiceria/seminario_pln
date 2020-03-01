@@ -20,7 +20,7 @@ Atualmente, vivemos na era do Big Data, ou seja, estamos gerando dados a todo mo
 
 ![](_bookdown_files/bookdown_files/figure-html/ciclo_mineracao.png)
 
-Agora, que já sabemos que é possível obter informações, de um grande volume de textos, vejamos como é o processo de obtenção dessas informações:
+Agora, que sabemos que é possível obter informações, de grandes volumes de textos, vejamos como é o processo de obtenção dessas informações:
 
 - **Começar com uma pergunta:**
     Primeiramente, devemos ter uma pergunta que queremos responder, como, por exemplo: _O que as pessoas que estão falando sobre data science?_
@@ -38,12 +38,12 @@ Agora, que já sabemos que é possível obter informações, de um grande volume
   Nessa etapa, poderemos visualizar o resultado da nossa análise e assim gerar diversas opções de gráficos, como, por exemplo, nuvem de palavras.
 
 - **Extrair conhecimento:**
-  E após, seguirmos, todas as etapas, chegaremos a última, onde iremos reponder a nossa pergunta e assim gerar um conhecimento em relação aos dados que posuímos.
+  E após, seguirmos, todas as etapas, chegamos a última, e se tudo estiver ocorrido bem, durante o processo de análise, teremos transformado os nossos dados em informação e agregando ao nosso entendimento prévio sobre o assunto, como resultado, gerado um conhecimento novo, sobre o fato que estávamos analisando.
   
 
 ## Definições
 
-Chegou o momento mais divertido onde iremos criar um projeto de text mining, e para isso, utilizaremos a linguagem de programação [R](https://cran.r-project.org/) e os seguintes pacotes:
+Chegou o momento mais divertido onde criaremos um projeto de text mining, e para isso, utilizaremos a linguagem de programação [R](https://cran.r-project.org/) e os seguintes pacotes:
 
 - _'rtweet'_ para conectarmos a api do Twitter.
 - _'tm'_ para realizarmos a mineração dos textos.
