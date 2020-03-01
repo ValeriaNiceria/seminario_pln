@@ -20,13 +20,13 @@ datascience_tweet <- search_tweets(
 
 # Visualizando a frequência de tweets, em um intervalo de tempo.
 datascience_tweet %>% 
-  ts_plot("3 hours") +
+  ts_plot("1 hours") +
   ggplot2::theme_minimal() +
   ggplot2::theme(plot.title = ggplot2::element_text(face = "bold")) +
   ggplot2::labs(
     x = NULL, y = NULL,
     title = "Frequência de #datascience no Twitter",
-    subtitle = "Tweets no intervalo de 3 horas",
+    subtitle = "Tweets no intervalo de 1 hora",
     caption = "\nSource: Dados coletados do Twitter's REST API via rtweet"
   )
 

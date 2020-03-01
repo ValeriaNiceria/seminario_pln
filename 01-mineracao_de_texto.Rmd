@@ -86,8 +86,7 @@ head_tweets <- readRDS("dados/head_datascience_tweet.rds")
     )
 ```
 
-
-**Visualizando a frequência de tweets, em um intervalo de tempo:**
+Visualizando a frequência de tweets utilizando #datascience, no intervalo de 1 hora:
 
 ```{r eval=FALSE}
 datascience_tweet %>% 
@@ -101,3 +100,5 @@ datascience_tweet %>%
     caption = "\nSource: Dados coletados do Twitter's REST API via rtweet"
   )
 ```
+
+![](_bookdown_files/bookdown_files/figure-html/freq_twitter_1hora.png)
