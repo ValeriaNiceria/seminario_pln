@@ -20,23 +20,33 @@ Agora, que já sabemos que é possível obter informações, de um grande volume
   E com os nossos dados em mãos, iremos realizar outra etapa do processo de mineração de dados, que é a limpeza dos nossos dados, removendo caracteres especiais, como acentos, pontuações, colocando todas as palavras em uma só estrutura, como, por exemplo, maiúsculo ou minúsculo e remover todas as palavras de ligação, conhecidas como **stopwords**, como: _a, e, os, de, com, etc_. Que serão irrelevantes para a pergunta que queremos responder.
   
 - **Analisar:**
-  Agora, com os nossos dados prontos, iremos realizar uma das partes mais divertidas, que é analisar os nossos dados, onde iremos aplicar diversas técnicas e verificar se com o dados que possuímos, poderemos responder à pergunta que nos motivou a analisar esses dados.
+  Com os nossos dados prontos, iremos realizar uma das partes mais divertidas, que é analisar os nossos dados, onde iremos aplicar diversas técnicas e verificar se com o dados que possuímos, poderemos responder à pergunta que nos motivou a analisar esses dados.
 
 - **Visualizar:**
   Nessa etapa, poderemos visualizar o resultado da nossa análise e assim gerar diversas opções de gráficos, como, por exemplo, nuvem de palavras.
 
 - **Extrair conhecimento:**
+  E após, seguirmos, todas as etapas, chegaremos a última, onde iremos reponder a nossa pergunta e assim gerar um conhecimento em relação aos dados que posuímos.
+  
 
-**Instalando os pacotes necessários:**
+Chegou o momento mais divertido onde iremos criar um projeto de text mining, e para isso, utilizaremos a linguagem de programação [R](https://cran.r-project.org/) e os seguintes pacotes:
+
+- _'rtweet'_ para conectarmos a api do Twitter.
+- _'tm'_ para realizarmos a mineração dos textos.
+- _'wordcloud'_ para criarmos nuvens de palavras.
+- _'tydeverse'_ para facilitar a manipulação dos nossos dados.
+  
+
+Primeiramente, vamos instalar os pacotes que serão necessários durante o projeto e para isso vamos utilizar a função _'install.packages()'_:
 
 ```{r eval=FALSE}
-install.packages("tm")
 install.packages("rtweet")
+install.packages("tm")
 install.packages("wordcloud")
 install.packages("tidyverse")
 ```
 
-**Carregando os pacotes:**
+E com os pacotes instalados, devemos carregar os mesmos e assim poderemos utilizar as funções desses pacotes.
 
 ```{r eval=FALSE}
 library(tm)
@@ -45,7 +55,7 @@ library(wordcloud)
 library(tidyverse)
 ```
 
-**Buscando os dados no Twitter:**
+Precisaremos de dados e vamos coletar esses dados utilizando a API do Twitter, utilizar a função de busca _'search_tweets()'_, passando a # que iremos buscar, o número de tweets, onde o número máximo é 18 mil, informamos que não queremos os retweets e languagem dos tweets deverá ser em inglês. 
 
 ```{r eval=FALSE}
 datascience_tweet <- search_tweets(
@@ -55,6 +65,27 @@ datascience_tweet <- search_tweets(
   lang = "en"
 )
 ```
+
+E essas são as primeiras linhas da busca utilizando a API:
+```{r eval=TRUE, echo=FALSE,cache=FALSE,  comment=FALSE, warning=FALSE,message=FALSE}
+library(DT)
+library(tidyverse)
+head_tweets <- readRDS("dados/head_datascience_tweet.rds")
+  DT::datatable(
+      head_tweets, rownames = FALSE,
+      selection = 'single',
+      escape = FALSE,
+      extensions = 'Scroller',
+      options = list(language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Portuguese-Brasil.json'),
+                     pageLength = 20,
+                     dom = 't',
+                     scrollY = 290,
+                     scrollX = TRUE,
+                     scroller = TRUE
+      )
+    )
+```
+
 
 **Visualizando a frequência de tweets, em um intervalo de tempo:**
 
