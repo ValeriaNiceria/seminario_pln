@@ -6,6 +6,10 @@
 
 Atualmente, vivemos na era do Big Data, ou seja, estamos gerando dados a todo momento, porém, esses dados, na maioria das vezes, são dados não estruturados, como notícias, emails e documentos de forma geral. E mineração de textos ou do inglês _Text Mining_, é processo utilizado para extrair informações, dessa grande massa de dados.
 
+![](_bookdown_files/bookdown_files/figure-html/ciclo_mineracao.png)
+
+Agora, que já sabemos que é possível obter informações, de um grande volume de textos, vejamos como é o processo de obtenção dessas informações. Primeiramente, devemos ter uma pergunta que queremos responder, como no exemplo que irei utilizar nesse seminário, que é, _O que as pessoas que estão falando sobre data science?_, agora que já temos uma dúvida, precisamos conseguir os dados que respondam a nossa pergunta, sendo assim, irei utilizar como fonte de dados, o que as pessoas estão conversando no twitter e com os nossos dados em mãos, iremos realizar outra etapa do processo de mineração de dados, que é a limpeza dos nossos dados, removendo caracteres especiais, como acentos e pontos, colocando todas as palavras em uma só estrutura, como por exemplo, tudo em minusculo e remover todas palavras de ligação, conhecidas como stopwords, como por exemplo: a, e, os, de, com, etc. Que serão irrelevantes para a pergunta que queremos responder.
+
 **Instalando os pacotes necessários:**
 
 ```{r eval=FALSE}
