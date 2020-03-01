@@ -22,3 +22,10 @@ h1 {
 .header-section-number {
   display: none;
 }
+
+
+h2 {
+  color: black;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0.6px black;
+}

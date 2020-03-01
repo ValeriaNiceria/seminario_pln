@@ -1,0 +1,20 @@
+# Processamento de Linguagem Natural
+
+![](_bookdown_files/bookdown_files/figure-html/banner.png)
+
+## O que é?
+
+De forma simplificada é fazer com que o computador entenda a comunicação humana, seja pela fala ou escrita.
+
+## Aplicações:
+
+- Respostas a perguntas.
+- Tradução.
+- Correção ortográfica.
+- Análise de sentimentos.
+- Reconhecimento ótico de caracteres (OCR).
+- Reconhecimento de fala.
+- Sintetização de fala.
+- Previsão de digitação.
+- Classificação de textos e documentos.
+- Resumos.

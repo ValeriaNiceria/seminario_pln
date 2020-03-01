@@ -24,7 +24,7 @@
 <meta name="author" content="Valéria Nicéria" />
 
 
-<meta name="date" content="2020-02-29" />
+<meta name="date" content="2020-03-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 
-<link rel="next" href="mineração-de-texto.html"/>
+<link rel="next" href="processamento-de-linguagem-natural.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,8 +50,80 @@
 
 
 
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.8/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/dt-ext-scroller-1.10.16/css/scroller.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-scroller-1.10.16/js/dataTables.scroller.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
 
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -69,11 +141,15 @@
 <li><a href="./">Processamento de Linguagem Natural</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#o-que-é"><i class="fa fa-check"></i><b>1.1</b> O que é?</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#aplicações"><i class="fa fa-check"></i><b>1.2</b> Aplicações:</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Mineração de Textos</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#o-que-é-mineração-de-textos"><i class="fa fa-check"></i><b>1.1</b> O que é Mineração de Textos?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#ciclos-de-mineração-de-textos"><i class="fa fa-check"></i><b>1.2</b> Ciclos de mineração de textos</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#definições"><i class="fa fa-check"></i><b>1.3</b> Definições</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="mineração-de-texto.html"><a href="mineração-de-texto.html"><i class="fa fa-check"></i><b>2</b> Mineração de Texto</a></li>
+<li class="chapter" data-level="2" data-path="processamento-de-linguagem-natural.html"><a href="processamento-de-linguagem-natural.html"><i class="fa fa-check"></i><b>2</b> Processamento de Linguagem Natural</a><ul>
+<li class="chapter" data-level="2.1" data-path="processamento-de-linguagem-natural.html"><a href="processamento-de-linguagem-natural.html#o-que-é"><i class="fa fa-check"></i><b>2.1</b> O que é?</a></li>
+<li class="chapter" data-level="2.2" data-path="processamento-de-linguagem-natural.html"><a href="processamento-de-linguagem-natural.html#aplicações"><i class="fa fa-check"></i><b>2.2</b> Aplicações:</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -94,29 +170,77 @@
 <div id="header">
 <h1 class="title">Processamento de Linguagem Natural</h1>
 <p class="author"><em>Valéria Nicéria</em></p>
-<p class="date"><em>2020-02-29</em></p>
+<p class="date"><em>2020-03-01</em></p>
 </div>
-<div id="introdução" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Introdução</h1>
-<p><img src="_bookdown_files/bookdown_files/figure-html/banner.png" /></p>
-<div id="o-que-é" class="section level2">
-<h2><span class="header-section-number">1.1</span> O que é?</h2>
-<p>De forma simplificada é fazer com que o computador entenda a comunicação humana, seja pela fala ou escrita.</p>
+<div id="mineração-de-textos" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Mineração de Textos</h1>
+<p><img src="_bookdown_files/bookdown_files/figure-html/mineracao.png" /></p>
+<div id="o-que-é-mineração-de-textos" class="section level2">
+<h2><span class="header-section-number">1.1</span> O que é Mineração de Textos?</h2>
+<p>Atualmente, vivemos na era do Big Data, ou seja, estamos gerando dados a todo momento, porém, esses dados, na maioria das vezes, são dados não estruturados, como notícias, emails e documentos de forma geral. E mineração de textos ou do inglês <em>Text Mining</em>, é processo utilizado para extrair informações, dessa grande massa de dados.</p>
 </div>
-<div id="aplicações" class="section level2">
-<h2><span class="header-section-number">1.2</span> Aplicações:</h2>
+<div id="ciclos-de-mineração-de-textos" class="section level2">
+<h2><span class="header-section-number">1.2</span> Ciclos de mineração de textos</h2>
+<p><img src="_bookdown_files/bookdown_files/figure-html/ciclo_mineracao.png" /></p>
+<p>Agora, que já sabemos que é possível obter informações, de um grande volume de textos, vejamos como é o processo de obtenção dessas informações:</p>
 <ul>
-<li>Respostas a perguntas.</li>
-<li>Tradução.</li>
-<li>Correção ortográfica.</li>
-<li>Análise de sentimentos.</li>
-<li>Reconhecimento ótico de caracteres (OCR).</li>
-<li>Reconhecimento de fala.</li>
-<li>Sintetização de fala.</li>
-<li>Previsão de digitação.</li>
-<li>Classificação de textos e documentos.</li>
-<li>Resumos.</li>
+<li><p><strong>Começar com uma pergunta:</strong>
+Primeiramente, devemos ter uma pergunta que queremos responder, como, por exemplo: <em>O que as pessoas que estão falando sobre data science?</em></p></li>
+<li><p><strong>Obter os dados:</strong>
+Agora que já temos uma pergunta, precisamos conseguir os dados que a respondam, sendo assim, irei utilizar como fonte de dados, o que as pessoas estão conversando no Twitter.</p></li>
+<li><p><strong>Limpar:</strong>
+E com os nossos dados em mãos, iremos realizar outra etapa do processo de mineração de dados, que é a limpeza dos nossos dados, removendo caracteres especiais, como acentos, pontuações, colocando todas as palavras em uma só estrutura, como, por exemplo, maiúsculo ou minúsculo e remover todas as palavras de ligação, conhecidas como <strong>stopwords</strong>, como: <em>a, e, os, de, com, etc</em>. Que serão irrelevantes para a pergunta que queremos responder.</p></li>
+<li><p><strong>Analisar:</strong>
+Com os nossos dados prontos, iremos realizar uma das partes mais divertidas, que é analisar os nossos dados, onde iremos aplicar diversas técnicas e verificar se com o dados que possuímos, poderemos responder à pergunta que nos motivou a analisar esses dados.</p></li>
+<li><p><strong>Visualizar:</strong>
+Nessa etapa, poderemos visualizar o resultado da nossa análise e assim gerar diversas opções de gráficos, como, por exemplo, nuvem de palavras.</p></li>
+<li><p><strong>Extrair conhecimento:</strong>
+E após, seguirmos, todas as etapas, chegaremos a última, onde iremos reponder a nossa pergunta e assim gerar um conhecimento em relação aos dados que posuímos.</p></li>
 </ul>
+</div>
+<div id="definições" class="section level2">
+<h2><span class="header-section-number">1.3</span> Definições</h2>
+<p>Chegou o momento mais divertido onde iremos criar um projeto de text mining, e para isso, utilizaremos a linguagem de programação <a href="https://cran.r-project.org/">R</a> e os seguintes pacotes:</p>
+<ul>
+<li><em>‘rtweet’</em> para conectarmos a api do Twitter.</li>
+<li><em>‘tm’</em> para realizarmos a mineração dos textos.</li>
+<li><em>‘wordcloud’</em> para criarmos nuvens de palavras.</li>
+<li><em>‘tydeverse’</em> para facilitar a manipulação dos nossos dados.</li>
+</ul>
+<p>Primeiramente, vamos instalar os pacotes que serão necessários durante o projeto e para isso vamos utilizar a função <em>‘install.packages()’</em>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;rtweet&quot;</span>)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&quot;tm&quot;</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">install.packages</span>(<span class="st">&quot;wordcloud&quot;</span>)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</a></code></pre></div>
+<p>E com os pacotes instalados, devemos carregar os mesmos e assim poderemos utilizar as funções desses pacotes.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(tm)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">library</span>(rtweet)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">library</span>(wordcloud)</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<p>Precisaremos de dados e vamos coletar esses dados utilizando a API do Twitter, utilizar a função de busca <em>‘search_tweets()’</em>, passando a # que iremos buscar, o número de tweets, onde o número máximo é 18 mil, informamos que não queremos os retweets e languagem dos tweets deverá ser em inglês.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">datascience_tweet &lt;-<span class="st"> </span><span class="kw">search_tweets</span>(</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="st">&quot;#datascience&quot;</span>,</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="dt">n =</span> <span class="dv">18000</span>,</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="dt">include_rts =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">  <span class="dt">lang =</span> <span class="st">&quot;en&quot;</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">)</a></code></pre></div>
+<p>E essas são as primeiras linhas da busca:
+<div id="htmlwidget-f90d975ad9356083e733" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f90d975ad9356083e733">{"x":{"filter":"none","extensions":["Scroller"],"data":[["572383090","572383090","1054321970442059776","1054321970442059776","1054321970442059776","1054321970442059776"],["1234189787126386688","1233298568875610112","1231989167279812611","1234014514703667200","1230991843585929216","1232862925955702785"],["2020-03-01T18:52:30Z","2020-02-28T07:51:07Z","2020-02-24T17:08:01Z","2020-03-01T07:16:01Z","2020-02-21T23:05:00Z","2020-02-27T03:00:01Z"],["norcalbiostat","norcalbiostat","techsocialnet","techsocialnet","techsocialnet","techsocialnet"],["The #DataScience initiative is participating in #GivingDay for #ASADataFest20 https://t.co/P76JRlYWb0","So thankful to receive a conference grant from @RConsortium to help put on #ASADataFest20 @ChicoState !! Food! Prizes! Swag!\nThink you can help feed &amp; caffeinate students too? Giving day is next Wednesday -https://t.co/PXAv1wdhH9 Every $5-10 helps! #DataScience","Why to always take a questioning approach as an analyst...\n\nData Analytics: Common Pitfalls of Not Asking Enough Questions and What Questions You Should be Asking | techsocialnetwork \n\nhttps://t.co/unqyg43YHt\n\n  #analytics #technology #data #datascience #bigdata #deeplearning https://t.co/fmFXiDdT8C","Why to always take a questioning approach as an analyst...\n\nData Analytics: Common Pitfalls of Not Asking Enough Questions and What Questions You Should be Asking | techsocialnetwork \n\nhttps://t.co/unqyg43YHt\n\n  #analytics #technology #data #datascience #bigdata #deeplearning https://t.co/BcYTuCNHmx","Is Data the New Oil? | techsocialnetwork \n\nCheck out our latest article and please share with your friends.\n\nhttps://t.co/YDOokF5Xds\n\n#data #bigdata #programming #technology #ai #automation #datascience #tech #machinelearning #artificialintelligence #coding","10 Ways AI And Machine Learning Are Improving Endpoint Security | techsocialnetwork - read more,,,,,,,,,\n\nhttps://t.co/cOaL6ytcG2\n\n #coding #machinelearning #computerscience #programming #developer #coder #python #programmer #technology #artificialintelligence #datascience"],["Twitter for Android","Twitter Web App","eClincher","eClincher","eClincher","eClincher"],[77,265,276,276,257,273],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[true,false,false,false,false,false],[false,false,false,false,false,false],[0,1,3,0,5,1],[0,0,1,3,10,1],[null,null,null,null,null,null],[null,null,null,null,null,null],[["DataScience","GivingDay","ASADataFest20"],["ASADataFest20","DataScience"],["analytics","technology","data","datascience","bigdata","deeplearning"],["analytics","technology","data","datascience","bigdata","deeplearning"],["data","bigdata","programming","technology","ai","automation","datascience","tech","machinelearning","artificialintelligence","coding"],["coding","machinelearning","computerscience","programming","developer","coder","python","programmer","technology","artificialintelligence","datascience"]],[null,null,null,null,null,null],["twitter.com/ChicoState/sta…","app.mobilecause.com/vf/chicodatafe…","techsocialnetwork.co.uk/2019/11/20/dat…","techsocialnetwork.co.uk/2019/11/20/dat…","techsocialnetwork.co.uk/2019/09/01/is-…","techsocialnetwork.co.uk/2019/10/05/10-…"],["https://t.co/P76JRlYWb0","https://t.co/PXAv1wdhH9","https://t.co/unqyg43YHt","https://t.co/unqyg43YHt","https://t.co/YDOokF5Xds","https://t.co/cOaL6ytcG2"],["https://twitter.com/ChicoState/status/1234183526964244480","https://app.mobilecause.com/vf/chicodatafest","https://techsocialnetwork.co.uk/2019/11/20/data-analytics-common-pitfalls-of-not-asking-enough-questions-and-what-questions-you-should-be-asking/","https://techsocialnetwork.co.uk/2019/11/20/data-analytics-common-pitfalls-of-not-asking-enough-questions-and-what-questions-you-should-be-asking/","https://techsocialnetwork.co.uk/2019/09/01/is-data-the-new-oil/","https://techsocialnetwork.co.uk/2019/10/05/10-ways-ai-and-machine-learning-are-improving-endpoint-security/"],[null,null,"http://pbs.twimg.com/media/ERjnnmQW4AYEQ87.jpg","http://pbs.twimg.com/media/ESAZqVSXkAEce0Z.jpg",null,null],[null,null,"https://t.co/fmFXiDdT8C","https://t.co/BcYTuCNHmx",null,null],[null,null,"https://twitter.com/techsocialnet/status/1231989167279812611/photo/1","https://twitter.com/techsocialnet/status/1234014514703667200/photo/1",null,null],[null,null,"photo","photo",null,null],[null,null,"http://pbs.twimg.com/media/ERjnnmQW4AYEQ87.jpg","http://pbs.twimg.com/media/ESAZqVSXkAEce0Z.jpg",null,null],[null,null,"https://t.co/fmFXiDdT8C","https://t.co/BcYTuCNHmx",null,null],[null,null,"https://twitter.com/techsocialnet/status/1231989167279812611/photo/1","https://twitter.com/techsocialnet/status/1234014514703667200/photo/1",null,null],[null,null,null,null,null,null],[null,["3318844765","17068492"],null,null,null,null],[null,["RConsortium","ChicoState"],null,null,null,null],["en","en","en","en","en","en"],["1234183526964244480",null,null,null,null,null],["We need your help on #ChicoStateGivingDay this Wednesday! Just a few dollars goes a long way. Show us how #CatsGiveBack on March 4! https://t.co/0jLyUou9B7 https://t.co/jZDT0Guwtu",null,null,null,null,null],["2020-03-01T18:27:37Z",null,null,null,null,null],["Sprout Social",null,null,null,null,null],[1,null,null,null,null,null],[0,null,null,null,null,null],["17068492",null,null,null,null,null],["ChicoState",null,null,null,null,null],["Chico State",null,null,null,null,null],[21145,null,null,null,null,null],[259,null,null,null,null,null],[13487,null,null,null,null,null],["Chico, CA",null,null,null,null,null],["The official Twitter account of California State University, Chico — home of the Wildcats!",null,null,null,null,null],[true,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[[null,null],[null,null],[null,null],[null,null],[null,null],[null,null]],[[null,null],[null,null],[null,null],[null,null],[null,null],[null,null]],[[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null]],["https://twitter.com/norcalbiostat/status/1234189787126386688","https://twitter.com/norcalbiostat/status/1233298568875610112","https://twitter.com/techsocialnet/status/1231989167279812611","https://twitter.com/techsocialnet/status/1234014514703667200","https://twitter.com/techsocialnet/status/1230991843585929216","https://twitter.com/techsocialnet/status/1232862925955702785"],["Robin Donatello","Robin Donatello","techsocialnetwork","techsocialnetwork","techsocialnetwork","techsocialnetwork"],["Chico, CA","Chico, CA","Bingley, England","Bingley, England","Bingley, England","Bingley, England"],["Teacher, Biostatistician, Consultant, Responsible Pit Bull Owner, Gamer, Gardener, Motorcycle Rider","Teacher, Biostatistician, Consultant, Responsible Pit Bull Owner, Gamer, Gardener, Motorcycle Rider","https://t.co/8HP7lequCo - Check out more on our site - Tech, AI, Machine Learning, Coding and more. \n\n#VisitUs\n\n#techsocialnetwork #RememberToLive #VisitUs","https://t.co/8HP7lequCo - Check out more on our site - Tech, AI, Machine Learning, Coding and more. \n\n#VisitUs\n\n#techsocialnetwork #RememberToLive #VisitUs","https://t.co/8HP7lequCo - Check out more on our site - Tech, AI, Machine Learning, Coding and more. \n\n#VisitUs\n\n#techsocialnetwork #RememberToLive #VisitUs","https://t.co/8HP7lequCo - Check out more on our site - Tech, AI, Machine Learning, Coding and more. \n\n#VisitUs\n\n#techsocialnetwork #RememberToLive #VisitUs"],[null,null,"https://t.co/2416vnOpzR","https://t.co/2416vnOpzR","https://t.co/2416vnOpzR","https://t.co/2416vnOpzR"],[false,false,false,false,false,false],[135,135,7062,7062,7062,7062],[164,164,7553,7553,7553,7553],[11,11,53,53,53,53],[1180,1180,27417,27417,27417,27417],[1653,1653,24694,24694,24694,24694],["2012-05-06T06:54:34Z","2012-05-06T06:54:34Z","2018-10-22T10:42:00Z","2018-10-22T10:42:00Z","2018-10-22T10:42:00Z","2018-10-22T10:42:00Z"],[false,false,false,false,false,false],[null,null,"https://t.co/2416vnOpzR","https://t.co/2416vnOpzR","https://t.co/2416vnOpzR","https://t.co/2416vnOpzR"],[null,null,"http://www.techsocialnetwork.co.uk","http://www.techsocialnetwork.co.uk","http://www.techsocialnetwork.co.uk","http://www.techsocialnetwork.co.uk"],[null,null,null,null,null,null],["https://pbs.twimg.com/profile_banners/572383090/1559865872","https://pbs.twimg.com/profile_banners/572383090/1559865872","https://pbs.twimg.com/profile_banners/1054321970442059776/1551817508","https://pbs.twimg.com/profile_banners/1054321970442059776/1551817508","https://pbs.twimg.com/profile_banners/1054321970442059776/1551817508","https://pbs.twimg.com/profile_banners/1054321970442059776/1551817508"],["http://abs.twimg.com/images/themes/theme9/bg.gif","http://abs.twimg.com/images/themes/theme9/bg.gif",null,null,null,null],["http://pbs.twimg.com/profile_images/1128175991166099456/hlp19w-E_normal.png","http://pbs.twimg.com/profile_images/1128175991166099456/hlp19w-E_normal.png","http://pbs.twimg.com/profile_images/1066400489695297536/sQ_Mnec2_normal.jpg","http://pbs.twimg.com/profile_images/1066400489695297536/sQ_Mnec2_normal.jpg","http://pbs.twimg.com/profile_images/1066400489695297536/sQ_Mnec2_normal.jpg","http://pbs.twimg.com/profile_images/1066400489695297536/sQ_Mnec2_normal.jpg"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>user_id<\/th>\n      <th>status_id<\/th>\n      <th>created_at<\/th>\n      <th>screen_name<\/th>\n      <th>text<\/th>\n      <th>source<\/th>\n      <th>display_text_width<\/th>\n      <th>reply_to_status_id<\/th>\n      <th>reply_to_user_id<\/th>\n      <th>reply_to_screen_name<\/th>\n      <th>is_quote<\/th>\n      <th>is_retweet<\/th>\n      <th>favorite_count<\/th>\n      <th>retweet_count<\/th>\n      <th>quote_count<\/th>\n      <th>reply_count<\/th>\n      <th>hashtags<\/th>\n      <th>symbols<\/th>\n      <th>urls_url<\/th>\n      <th>urls_t.co<\/th>\n      <th>urls_expanded_url<\/th>\n      <th>media_url<\/th>\n      <th>media_t.co<\/th>\n      <th>media_expanded_url<\/th>\n      <th>media_type<\/th>\n      <th>ext_media_url<\/th>\n      <th>ext_media_t.co<\/th>\n      <th>ext_media_expanded_url<\/th>\n      <th>ext_media_type<\/th>\n      <th>mentions_user_id<\/th>\n      <th>mentions_screen_name<\/th>\n      <th>lang<\/th>\n      <th>quoted_status_id<\/th>\n      <th>quoted_text<\/th>\n      <th>quoted_created_at<\/th>\n      <th>quoted_source<\/th>\n      <th>quoted_favorite_count<\/th>\n      <th>quoted_retweet_count<\/th>\n      <th>quoted_user_id<\/th>\n      <th>quoted_screen_name<\/th>\n      <th>quoted_name<\/th>\n      <th>quoted_followers_count<\/th>\n      <th>quoted_friends_count<\/th>\n      <th>quoted_statuses_count<\/th>\n      <th>quoted_location<\/th>\n      <th>quoted_description<\/th>\n      <th>quoted_verified<\/th>\n      <th>retweet_status_id<\/th>\n      <th>retweet_text<\/th>\n      <th>retweet_created_at<\/th>\n      <th>retweet_source<\/th>\n      <th>retweet_favorite_count<\/th>\n      <th>retweet_retweet_count<\/th>\n      <th>retweet_user_id<\/th>\n      <th>retweet_screen_name<\/th>\n      <th>retweet_name<\/th>\n      <th>retweet_followers_count<\/th>\n      <th>retweet_friends_count<\/th>\n      <th>retweet_statuses_count<\/th>\n      <th>retweet_location<\/th>\n      <th>retweet_description<\/th>\n      <th>retweet_verified<\/th>\n      <th>place_url<\/th>\n      <th>place_name<\/th>\n      <th>place_full_name<\/th>\n      <th>place_type<\/th>\n      <th>country<\/th>\n      <th>country_code<\/th>\n      <th>geo_coords<\/th>\n      <th>coords_coords<\/th>\n      <th>bbox_coords<\/th>\n      <th>status_url<\/th>\n      <th>name<\/th>\n      <th>location<\/th>\n      <th>description<\/th>\n      <th>url<\/th>\n      <th>protected<\/th>\n      <th>followers_count<\/th>\n      <th>friends_count<\/th>\n      <th>listed_count<\/th>\n      <th>statuses_count<\/th>\n      <th>favourites_count<\/th>\n      <th>account_created_at<\/th>\n      <th>verified<\/th>\n      <th>profile_url<\/th>\n      <th>profile_expanded_url<\/th>\n      <th>account_lang<\/th>\n      <th>profile_banner_url<\/th>\n      <th>profile_background_url<\/th>\n      <th>profile_image_url<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"language":{"url":"//cdn.datatables.net/plug-ins/1.10.11/i18n/Portuguese-Brasil.json"},"pageLength":20,"dom":"t","scrollY":290,"scrollX":true,"scroller":true,"columnDefs":[{"className":"dt-right","targets":[6,12,13,14,15,36,37,41,42,43,51,52,56,57,58,77,78,79,80,81]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script></p>
+<p>Visualizando a frequência de tweets utilizando #datascience, no intervalo de 1 hora:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">datascience_tweet <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw">ts_plot</span>(<span class="st">&quot;3 hours&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">theme_minimal</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">theme</span>(<span class="dt">plot.title =</span> ggplot2<span class="op">::</span><span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">    <span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">    <span class="dt">title =</span> <span class="st">&quot;Frequência de #datascience no Twitter&quot;</span>,</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">    <span class="dt">subtitle =</span> <span class="st">&quot;Tweets no intervalo de 3 horas&quot;</span>,</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">    <span class="dt">caption =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">Source: Dados coletados do Twitter&#39;s REST API via rtweet&quot;</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">  )</a></code></pre></div>
+<p><img src="_bookdown_files/bookdown_files/figure-html/freq_twitter_1hora.png" /></p>
+<p>Agora, que conhecendo um pouco os dados que possuímos, vamos começar a mineração dos textos e para isso iremos pegar a (coluna) texto e atribuir a uma variável.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">datascience_texto &lt;-<span class="st"> </span>datascience_tweet<span class="op">$</span>text</a></code></pre></div>
 
 </div>
 </div>
@@ -126,7 +250,7 @@
         </div>
       </div>
 
-<a href="mineração-de-texto.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="processamento-de-linguagem-natural.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
