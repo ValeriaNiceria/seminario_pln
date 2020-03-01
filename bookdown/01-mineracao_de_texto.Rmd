@@ -1,3 +1,0 @@
-# Mineração de Texto
-
-![](_bookdown_files/bookdown_files/figure-html/mineracao.png)

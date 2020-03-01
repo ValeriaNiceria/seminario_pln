@@ -1,0 +1,51 @@
+# Mineração de Textos
+
+![](_bookdown_files/bookdown_files/figure-html/mineracao.png)
+
+## O que é mineração de texto?
+
+Atualmente, vivemos na era do Big Data, ou seja, estamos gerando dados a todo momento, porém, esses dados, na maioria das vezes, são dados não estruturados, como notícias, emails e documentos de forma geral. E mineração de textos ou do inglês _Text Mining_, é processo utilizado para extrair informações, dessa grande massa de dados.
+
+**Instalando os pacotes necessários:**
+
+```{r eval=FALSE}
+install.packages("tm")
+install.packages("rtweet")
+install.packages("wordcloud")
+install.packages("tidyverse")
+```
+
+**Carregando os pacotes:**
+
+```{r eval=FALSE}
+library(tm)
+library(rtweet)
+library(wordcloud)
+library(tidyverse)
+```
+
+**Buscando os dados no Twitter:**
+
+```{r eval=FALSE}
+datascience_tweet <- search_tweets(
+  "#datascience",
+  n = 18000,
+  include_rts = FALSE,
+  lang = "en"
+)
+```
+
+**Visualizando a frequência de tweets, em um intervalo de tempo:**
+
+```{r eval=TRUE}
+datascience_tweet %>% 
+  ts_plot("3 hours") +
+  ggplot2::theme_minimal() +
+  ggplot2::theme(plot.title = ggplot2::element_text(face = "bold")) +
+  ggplot2::labs(
+    x = NULL, y = NULL,
+    title = "Frequência de #datascience no Twitter",
+    subtitle = "Tweets no intervalo de 3 horas",
+    caption = "\nSource: Dados coletados do Twitter's REST API via rtweet"
+  )
+```
