@@ -14,7 +14,7 @@ link-citations: yes
 
 ## O que é Mineração de Textos?
 
-Atualmente, vivemos na era do Big Data, ou seja, estamos gerando dados a todo momento, porém, esses dados, na maioria das vezes, são dados não estruturados, como notícias, emails e documentos de forma geral. E mineração de textos ou do inglês _Text Mining_, é processo utilizado para extrair informações, dessa grande massa de dados.
+Atualmente, vivemos na era do Big Data, ou seja, estamos gerando dados a todo momento, porém, na maioria das vezes, são dados não estruturados, como notícias, e-mails e documentos de forma geral. Mineração de textos ou do inglês _Text Mining_, tem como objetivo, encontrar termos relevantes e estabelecer relacionamento entre eles de acordo com a sua frequência e assim extrair informações de grandes volumes de textos.
 
 ## Ciclos de mineração de textos
 
@@ -29,7 +29,7 @@ Agora, que sabemos que é possível obter informações, de grandes volumes de t
   Agora, que temos um questionamento, precisamos conseguir os dados que o responda, sendo assim, irei utilizar como fonte de dados, o que as pessoas estão conversando no Twitter.
 
 - **Limpar:**
-  E com os nossos dados em mãos, iremos realizar outra etapa do processo de mineração de dados, que é a limpeza dos nossos dados, removendo caracteres especiais, como acentos, pontuações, colocando todas as palavras em uma só estrutura, como, por exemplo, maiúsculo ou minúsculo e remover todas as palavras de ligação, conhecidas como **stopwords**, como: _a, e, os, de, com, etc_. Que serão irrelevantes para a pergunta que queremos responder.
+  E com os nossos dados em mãos, iremos realizar outra etapa do processo de mineração de dados, que é a limpeza dos nossos dados, removendo caracteres especiais, como acentos, pontuações, colocando todas as palavras em uma só estrutura, como, por exemplo, maiúsculo ou minúsculo e remover todas as palavras de ligação, como as **stopwords**: _a, e, os, de, com, etc_. Que serão irrelevantes para a pergunta que queremos responder.
   
 - **Analisar:**
   Com os nossos dados prontos, iremos realizar uma das partes mais divertidas, que é analisar os nossos dados, onde iremos aplicar diversas técnicas e verificar se com o dados que possuímos, poderemos responder à pergunta que nos motivou a analisar esses dados.
@@ -43,6 +43,13 @@ Agora, que sabemos que é possível obter informações, de grandes volumes de t
 
 ## Definições
 
+Antes, de continuarmos, vamos conhecer alguns conceitos:
+
+- **Corpus:** Conjuntos de textos.
+- **Stopwords:** Como comentado anteriormente, são palavras consideradas irrelevantes, para o resultado da mineração e existem stopwords para todos idiomas.
+
+## Criando um projeto
+
 Chegou o momento mais divertido onde criaremos um projeto de text mining, e para isso, utilizaremos a linguagem de programação [R](https://cran.r-project.org/) e os seguintes pacotes:
 
 - _'rtweet'_ para conectarmos a api do Twitter.
@@ -51,7 +58,7 @@ Chegou o momento mais divertido onde criaremos um projeto de text mining, e para
 - _'tydeverse'_ para facilitar a manipulação dos nossos dados.
   
 
-Primeiramente, vamos instalar os pacotes que serão necessários durante o projeto e para isso vamos utilizar a função _'install.packages()'_:
+Primeiramente, vamos instalar os pacotes que serão necessários durante o projeto:
 
 ```{r eval=FALSE}
 install.packages("rtweet")
@@ -69,7 +76,7 @@ library(wordcloud)
 library(tidyverse)
 ```
 
-Precisaremos de dados e vamos coletar esses dados utilizando a API do Twitter, utilizar a função de busca _'search_tweets()'_, passando a # que iremos buscar, o número de tweets, onde o número máximo é 18 mil, informamos que não queremos os retweets e languagem dos tweets deverá ser em inglês. 
+Precisaremos de dados e vamos coletar esses dados utilizando a API do Twitter, usando a função de busca _'search_tweets()'_, passaremos a # que iremos buscar, o número de tweets, onde o número máximo é 18 mil, informaremos que não queremos os retweets e a linguagem dos tweets deverá ser em inglês.
 
 ```{r eval=FALSE}
 datascience_tweet <- search_tweets(
@@ -81,6 +88,7 @@ datascience_tweet <- search_tweets(
 ```
 
 E essas são as primeiras linhas da busca:
+
 ```{r eval=TRUE, echo=FALSE,cache=FALSE,  comment=FALSE, warning=FALSE,message=FALSE}
 library(DT)
 library(tidyverse)
@@ -100,24 +108,25 @@ head_tweets <- readRDS("dados/head_datascience_tweet.rds")
     )
 ```
 
+
 Visualizando a frequência de tweets utilizando #datascience, no intervalo de 1 hora:
 
 ```{r eval=FALSE}
 datascience_tweet %>% 
-  ts_plot("3 hours") +
+  ts_plot("1 hours") +
   ggplot2::theme_minimal() +
   ggplot2::theme(plot.title = ggplot2::element_text(face = "bold")) +
   ggplot2::labs(
     x = NULL, y = NULL,
     title = "Frequência de #datascience no Twitter",
-    subtitle = "Tweets no intervalo de 3 horas",
+    subtitle = "Tweets no intervalo de 1 hora",
     caption = "\nSource: Dados coletados do Twitter's REST API via rtweet"
   )
 ```
 
 ![](_bookdown_files/bookdown_files/figure-html/freq_twitter_1hora.png)
 
-Agora, que conhecendo um pouco os dados que possuímos, vamos começar a mineração dos textos e para isso iremos pegar a (coluna) texto e atribuir a uma variável.
+Vamos começar a mineração dos textos e para isso iremos pegar a (coluna) _text_ e atribuir a uma variável.
  
 
 ```{r eval=FALSE}
