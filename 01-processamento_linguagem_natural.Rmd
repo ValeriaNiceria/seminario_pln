@@ -6,7 +6,7 @@
 
 De forma simplificada é fazer com que o computador entenda a comunicação humana, seja pela fala ou escrita.
 
-## Aplicações:
+## Aplicações
 
 - Respostas a perguntas.
 - Tradução.
@@ -18,3 +18,49 @@ De forma simplificada é fazer com que o computador entenda a comunicação huma
 - Previsão de digitação.
 - Classificação de textos e documentos.
 - Resumos.
+
+## Níveis de processamento
+
+- **Fonológico:** Essa parte corresponde à interpretação dos sons da palavra.
+
+- **Morfológico:** Estudo sobre a natureza das palavras e suas composições. 
+
+- **Lexical:** Processamento responsável por interpretar o significado de cada palavra.
+
+- **Sintático:** Estuda a composição da frase.
+
+- **Semântico:** Processamento que visa compreender o significado completo da frase.
+
+- **Discurso:** Estuda o texto como um todo.
+
+- **Pragmático:** Processamento utilizado para buscar significados além das palavras, as entrelinhas.
+
+## Conceitos
+
+- **Corpus:** Conjunto de dados (texto não estruturado) em linguagem natural.
+
+- **Annotations:** 
+  - Processo mais importante em PLN.
+  - Coloca anotações no texto, como flexões, dependências, etc.
+  
+- **Tokenization:** Processo de separar a sentença em suas partes: palavras, pontos, símbolos, etc.
+
+- **Parts-of-Speech (POS) Tagging:** Adiciona tags a cada token, como por exemplo, se é verbo, substantivo, adjetivo, etc.
+
+- **Lemmatizing (Lemma):** Traz a palavra na sua flexão, de modo que possam ser analisadas juntas.
+
+- **Dependency Parsing:** Encontra relação entre palavras "pais" e "filhos".
+
+
+## Modelo
+
+- **Análise:**
+
+  - Verbo? Substantivo? Quais são as flexões? Quais as dependências?
+  
+- Um modelo é um banco de dados linguístico.
+
+- Específico de cada idioma.
+
+- Maioria das plataformas de PLN tem seus próprios modelo ou usam de terceiros.
+

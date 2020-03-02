@@ -24,7 +24,7 @@
 <meta name="author" content="Valéria Nicéria" />
 
 
-<meta name="date" content="2020-03-01" />
+<meta name="date" content="2020-03-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -70,13 +70,16 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Mineração de Textos</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#o-que-é-mineração-de-textos"><i class="fa fa-check"></i><b>1.1</b> O que é Mineração de Textos?</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#ciclos-de-mineração-de-textos"><i class="fa fa-check"></i><b>1.2</b> Ciclos de mineração de textos</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#definições"><i class="fa fa-check"></i><b>1.3</b> Definições</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#ciclos-de-mineração-de-textos"><i class="fa fa-check"></i><b>1.1</b> Ciclos de mineração de textos</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#definições"><i class="fa fa-check"></i><b>1.2</b> Definições</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#criando-um-projeto"><i class="fa fa-check"></i><b>1.3</b> Criando um projeto</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="processamento-de-linguagem-natural.html"><a href="processamento-de-linguagem-natural.html"><i class="fa fa-check"></i><b>2</b> Processamento de Linguagem Natural</a><ul>
 <li class="chapter" data-level="2.1" data-path="processamento-de-linguagem-natural.html"><a href="processamento-de-linguagem-natural.html#o-que-é"><i class="fa fa-check"></i><b>2.1</b> O que é?</a></li>
-<li class="chapter" data-level="2.2" data-path="processamento-de-linguagem-natural.html"><a href="processamento-de-linguagem-natural.html#aplicações"><i class="fa fa-check"></i><b>2.2</b> Aplicações:</a></li>
+<li class="chapter" data-level="2.2" data-path="processamento-de-linguagem-natural.html"><a href="processamento-de-linguagem-natural.html#aplicações"><i class="fa fa-check"></i><b>2.2</b> Aplicações</a></li>
+<li class="chapter" data-level="2.3" data-path="processamento-de-linguagem-natural.html"><a href="processamento-de-linguagem-natural.html#níveis-de-processamento"><i class="fa fa-check"></i><b>2.3</b> Níveis de processamento</a></li>
+<li class="chapter" data-level="2.4" data-path="processamento-de-linguagem-natural.html"><a href="processamento-de-linguagem-natural.html#conceitos"><i class="fa fa-check"></i><b>2.4</b> Conceitos</a></li>
+<li class="chapter" data-level="2.5" data-path="processamento-de-linguagem-natural.html"><a href="processamento-de-linguagem-natural.html#modelo"><i class="fa fa-check"></i><b>2.5</b> Modelo</a></li>
 </ul></li>
 </ul>
 
@@ -103,7 +106,7 @@
 <p>De forma simplificada é fazer com que o computador entenda a comunicação humana, seja pela fala ou escrita.</p>
 </div>
 <div id="aplicações" class="section level2">
-<h2><span class="header-section-number">2.2</span> Aplicações:</h2>
+<h2><span class="header-section-number">2.2</span> Aplicações</h2>
 <ul>
 <li>Respostas a perguntas.</li>
 <li>Tradução.</li>
@@ -115,6 +118,45 @@
 <li>Previsão de digitação.</li>
 <li>Classificação de textos e documentos.</li>
 <li>Resumos.</li>
+</ul>
+</div>
+<div id="níveis-de-processamento" class="section level2">
+<h2><span class="header-section-number">2.3</span> Níveis de processamento</h2>
+<ul>
+<li><p><strong>Fonológico:</strong> Essa parte corresponde à interpretação dos sons da palavra.</p></li>
+<li><p><strong>Morfológico:</strong> Estudo sobre a natureza das palavras e suas composições.</p></li>
+<li><p><strong>Lexical:</strong> Processamento responsável por interpretar o significado de cada palavra.</p></li>
+<li><p><strong>Sintático:</strong> Estuda a composição da frase.</p></li>
+<li><p><strong>Semântico:</strong> Processamento que visa compreender o significado completo da frase.</p></li>
+<li><p><strong>Discurso:</strong> Estuda o texto como um todo.</p></li>
+<li><p><strong>Pragmático:</strong> Processamento utilizado para buscar significados além das palavras, as entrelinhas.</p></li>
+</ul>
+</div>
+<div id="conceitos" class="section level2">
+<h2><span class="header-section-number">2.4</span> Conceitos</h2>
+<ul>
+<li><p><strong>Corpus:</strong> Conjunto de dados (texto não estruturado) em linguagem natural.</p></li>
+<li><strong>Annotations:</strong>
+<ul>
+<li>Processo mais importante em PLN.</li>
+<li>Coloca anotações no texto, como flexões, dependências, etc.</li>
+</ul></li>
+<li><p><strong>Tokenization:</strong> Processo de separar a sentença em suas partes: palavras, pontos, símbolos, etc.</p></li>
+<li><p><strong>Parts-of-Speech (POS) Tagging:</strong> Adiciona tags a cada token, como por exemplo, se é verbo, substantivo, adjetivo, etc.</p></li>
+<li><p><strong>Lemmatizing (Lemma):</strong> Traz a palavra na sua flexão, de modo que possam ser analisadas juntas.</p></li>
+<li><p><strong>Dependency Parsing:</strong> Encontra relação entre palavras “pais” e “filhos”.</p></li>
+</ul>
+</div>
+<div id="modelo" class="section level2">
+<h2><span class="header-section-number">2.5</span> Modelo</h2>
+<ul>
+<li><p><strong>Análise:</strong></p>
+<ul>
+<li>Verbo? Substantivo? Quais são as flexões? Quais as dependências?</li>
+</ul></li>
+<li><p>Um modelo é um banco de dados linguístico.</p></li>
+<li><p>Específico de cada idioma.</p></li>
+<li><p>Maioria das plataformas de PLN tem seus próprios modelo ou usam de terceiros.</p></li>
 </ul>
 
 </div>
