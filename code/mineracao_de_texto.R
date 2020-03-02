@@ -82,7 +82,7 @@ df_datascience <- data.frame(
 # Gerando um gráfico da frequência
 df_datascience %>%
   filter(!word %in% c("datascience", "via")) %>% 
-  subset(freq > 250) %>% 
+  subset(freq > 450) %>% 
   ggplot(aes(x = reorder(word, freq),
              y = freq)) +
   geom_bar(stat = "identity", fill='#0c6cad', color="#075284") +
@@ -91,3 +91,14 @@ df_datascience %>%
   labs(y = "Frequência", x = "Termos") +
   coord_flip()
 
+
+# Carregando o pacote 'devtools'
+library(devtools)
+
+# Instalando o pacote 'wordcloud2'
+devtools::install_github("lchiffon/wordcloud2")
+
+# Carregando o pacote 'wordcloud2'
+library(wordcloud2)
+
+wordcloud2(data = df_datascience)

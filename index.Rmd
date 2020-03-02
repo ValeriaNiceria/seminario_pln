@@ -203,7 +203,7 @@ df_datascience <- data.frame(
 # Gerando um gráfico da frequência
 df_datascience %>%
   filter(!word %in% c("datascience", "via")) %>% 
-  subset(freq > 250) %>% 
+  subset(freq > 450) %>% 
   ggplot(aes(x = reorder(word, freq),
              y = freq)) +
   geom_bar(stat = "identity", fill='#0c6cad', color="#075284") +
@@ -213,3 +213,7 @@ df_datascience %>%
   coord_flip()
 
 ```
+
+![](_bookdown_files/bookdown_files/figure-html/freq.png)
+
+![](_bookdown_files/bookdown_files/figure-html/nuvem2.png)
