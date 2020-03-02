@@ -1,6 +1,6 @@
 # Instalando os pacotes
-# install.packages("tm")
 # install.packages("rtweet")
+# install.packages("tm")
 # install.packages("wordcloud")
 # install.packages("tidyverse")
 
@@ -10,7 +10,7 @@ library(rtweet)
 library(wordcloud)
 library(tidyverse)
 
-# Buscando os dados no twitter
+# Buscando os tweets com a #datascience
 datascience_tweet <- search_tweets(
   "#datascience",
   n = 18000,
@@ -18,7 +18,7 @@ datascience_tweet <- search_tweets(
   lang = "en"
 )
 
-# Visualizando a frequência de tweets, em um intervalo de tempo.
+# Gerando um gráfico com a frequencia dos tweets no intervalo de 1 hora
 datascience_tweet %>% 
   ts_plot("1 hours") +
   ggplot2::theme_minimal() +
@@ -30,12 +30,13 @@ datascience_tweet %>%
     caption = "\nSource: Dados coletados do Twitter's REST API via rtweet"
   )
 
-
-# Iniciando a mineração do texto
+# Atribuindo os textos a uma variável
 datascience_texto <- datascience_tweet$text
 
-# Criando e limpando o corpus
+# Transformando os textos em um corpus
 datascience_corpus <- VCorpus(VectorSource(datascience_texto))
+
+# Realizando a limpeza do corpus
 datascience_corpus <- 
   tm_map(
     datascience_corpus,
@@ -47,24 +48,46 @@ datascience_corpus <-
   tm_map(removePunctuation) %>% 
   tm_map(removeWords, stopwords("english"))
 
-# Visualizando a nuvem de palavras
-wordcloud(
-  datascience_corpus,
-  min.freq = 5,
-  max.words = 100
-)
-
+# Lista de cores em hexadecimal
 paleta <- brewer.pal(8, "Dark2")
+
+# Criando uma nuvem de palavras, com no máximo 100 palavras
+# onde tenha se repetido ao menos 2 vezes.
 wordcloud(
   datascience_corpus,
   min.freq = 2,
   max.words = 100,
-  random.order = T,
   colors = paleta
 )
 
-# Removendo algumas palavras
-
-# Limpando o texto com a Document Term Matrix
+# Criando uma matriz de termos
 datascience_document <- DocumentTermMatrix(datascience_corpus)
-datascience_document <- as.matri
+
+# Removendo os termos menos frequentes
+datascience_doc <- removeSparseTerms(datascience_document, 0.98)
+
+# Gerando uma matrix ordenada, com o termos mais frequentes
+datascience_freq <- 
+  datascience_doc %>% 
+  as.matrix() %>% 
+  colSums() %>% 
+  sort(decreasing = T)
+
+# Criando um dataframe com as palavras mais frequentes
+df_datascience <- data.frame(
+  word = names(datascience_freq),
+  freq = datascience_freq
+)
+
+# Gerando um gráfico da frequência
+df_datascience %>%
+  filter(!word %in% c("datascience", "via")) %>% 
+  subset(freq > 250) %>% 
+  ggplot(aes(x = reorder(word, freq),
+             y = freq)) +
+  geom_bar(stat = "identity", fill='#0c6cad', color="#075284") +
+  theme(axis.text.x = element_text(angle = 45, hjus = 1)) +
+  ggtitle("Termos relacionados a Data Science mais frequentes no Twitter") +
+  labs(y = "Frequência", x = "Termos") +
+  coord_flip()
+

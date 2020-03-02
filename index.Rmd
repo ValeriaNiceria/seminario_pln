@@ -61,6 +61,7 @@ Chegou o momento mais divertido onde criaremos um projeto de text mining, e para
 Primeiramente, vamos instalar os pacotes que serão necessários durante o projeto:
 
 ```{r eval=FALSE}
+# Instalando os pacotes
 install.packages("rtweet")
 install.packages("tm")
 install.packages("wordcloud")
@@ -70,6 +71,7 @@ install.packages("tidyverse")
 E com os pacotes instalados, devemos carregar os mesmos e assim poderemos utilizar as funções desses pacotes.
 
 ```{r eval=FALSE}
+# Carregando os pacotes
 library(tm)
 library(rtweet)
 library(wordcloud)
@@ -79,6 +81,7 @@ library(tidyverse)
 Precisaremos de dados e vamos coletar esses dados utilizando a API do Twitter, usando a função de busca _'search_tweets()'_, passaremos a # que iremos buscar, o número de tweets, onde o número máximo é 18 mil, informaremos que não queremos os retweets e a linguagem dos tweets deverá ser em inglês.
 
 ```{r eval=FALSE}
+# Buscando os tweets com a #datascience
 datascience_tweet <- search_tweets(
   "#datascience",
   n = 18000,
@@ -112,6 +115,7 @@ head_tweets <- readRDS("dados/head_datascience_tweet.rds")
 Visualizando a frequência de tweets utilizando #datascience, no intervalo de 1 hora:
 
 ```{r eval=FALSE}
+# Gerando um gráfico com a frequencia dos tweets no intervalo de 1 hora
 datascience_tweet %>% 
   ts_plot("1 hours") +
   ggplot2::theme_minimal() +
@@ -130,5 +134,82 @@ Vamos começar a mineração dos textos e para isso iremos pegar a (coluna) _tex
  
 
 ```{r eval=FALSE}
+# Atribuindo os textos a uma variável
 datascience_texto <- datascience_tweet$text
+```
+
+Tranformando os nossos textos em um corpus, para assim podermos realizar a limpeza utilizando a função _tm_map_, onde removeremos os caracteres especiais, transformaremos todas as letras para minúsculas, removeremos as pontuações e as stopwords em inglês.
+
+```{r eval=FALSE}
+# Transformando os textos em um corpus
+datascience_corpus <- VCorpus(VectorSource(datascience_texto))
+
+# Realizando a limpeza do corpus
+datascience_corpus <- 
+  tm_map(
+    datascience_corpus,
+    content_transformer(
+      function(x) iconv(x, from = 'UTF-8', to = 'ASCII//TRANSLIT')
+    )
+  ) %>% 
+  tm_map(content_transformer(tolower)) %>% 
+  tm_map(removePunctuation) %>% 
+  tm_map(removeWords, stopwords("english"))
+```
+
+Após, realizar a limpeza dos nossos textos, chegou o momento de visualizar o resultado em uma nuvem de palavras e iremos utilizar a função _brewer.pal_, para gerar as cores em hexadecimal, para assim, colorirmos a nossa nuvem.
+
+```{r eval=FALSE}
+# Lista de cores em hexadecimal
+paleta <- brewer.pal(8, "Dark2")
+
+# Criando uma nuvem de palavras, com no máximo 100 palavras
+# onde tenha se repetido ao menos 2 vezes.
+wordcloud(
+  datascience_corpus,
+  min.freq = 2,
+  max.words = 100,
+  colors = paleta
+)
+```
+![](_bookdown_files/bookdown_files/figure-html/nuvem.png)
+
+Criando uma matriz de termos _(DocumentTermMatrix)_, removendo os termos menos frequentes e somando os termos para assim verificar os termos mais frequentes.
+
+```{r eval=FALSE}
+# Criando uma matriz de termos
+datascience_document <- DocumentTermMatrix(datascience_corpus)
+
+# Removendo os termos menos frequentes
+datascience_doc <- removeSparseTerms(datascience_document, 0.98)
+
+# Gerando uma matrix ordenada, com o termos mais frequentes
+datascience_freq <- 
+  datascience_doc %>% 
+  as.matrix() %>% 
+  colSums() %>% 
+  sort(decreasing = T)
+```
+
+Gerando um dataframe com os termos mais frequentes e visualizando em um gráfico.
+
+```{r eval=FALSE}
+# Criando um dataframe com as palavras mais frequentes
+df_datascience <- data.frame(
+  word = names(datascience_freq),
+  freq = datascience_freq
+)
+
+# Gerando um gráfico da frequência
+df_datascience %>%
+  filter(!word %in% c("datascience", "via")) %>% 
+  subset(freq > 250) %>% 
+  ggplot(aes(x = reorder(word, freq),
+             y = freq)) +
+  geom_bar(stat = "identity", fill='#0c6cad', color="#075284") +
+  theme(axis.text.x = element_text(angle = 45, hjus = 1)) +
+  ggtitle("Termos relacionados a Data Science mais frequentes no Twitter") +
+  labs(y = "Frequência", x = "Termos") +
+  coord_flip()
+
 ```
