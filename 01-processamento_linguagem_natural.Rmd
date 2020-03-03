@@ -6,10 +6,24 @@
 
 De forma simplificada é fazer com que o computador entenda a comunicação humana, seja pela fala ou escrita.
 
+Interpretação ou produção de linguagem humana por computador.
+
+## Níveis
+
+- Morfologia: Estrutura das palavras.
+- Sintaxe: A forma em que as palavras são utilizadas.
+- Semântica: Significado.
+- Pragmática: Significado no contexto.
+
+## Ajudar vs Substituir
+
+- Campo de conhecimento complexo.
+- Maior sucesso em escopo delimitado.
+
 ## Aplicações
 
-- Respostas a perguntas.
-- Tradução.
+- Respostas a perguntas. (IBM Watsom)
+- Tradução. (Google translate)
 - Correção ortográfica.
 - Análise de sentimentos.
 - Reconhecimento ótico de caracteres (OCR).
@@ -42,7 +56,7 @@ De forma simplificada é fazer com que o computador entenda a comunicação huma
 - **Annotations:** 
   - Processo mais importante em PLN.
   - Coloca anotações no texto, como flexões, dependências, etc.
-  
+    
 - **Tokenization:** Processo de separar a sentença em suas partes: palavras, pontos, símbolos, etc.
 
 - **Parts-of-Speech (POS) Tagging:** Adiciona tags a cada token, como por exemplo, se é verbo, substantivo, adjetivo, etc.
@@ -63,4 +77,26 @@ De forma simplificada é fazer com que o computador entenda a comunicação huma
 - Específico de cada idioma.
 
 - Maioria das plataformas de PLN tem seus próprios modelo ou usam de terceiros.
+
+
+## UD
+
+- Projeto Open Source
+- Banco de dados para mais de 60 idiomas
+
+## CoNLL-U
+
+Formato padrão para annotations
+
+## Pacote UDpipe
+
+- Biblioteca para C++, Java, C#, Python, R
+- Tokenization, POS Tagging, Lemmatization, Dependecy Parsing
+- Sem dependências externas (ex.Java)
+- Funções de anotação no formato CoNLL-U Format
+  - http:://universaldependencies.org/format.html#conll-u-format
+- Modelo em português (e outros 50 idiomas)
+- Você pode criar seu próprio modelo
+
+
 

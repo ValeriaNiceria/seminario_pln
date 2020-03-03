@@ -29,3 +29,9 @@ h2 {
   text-transform: uppercase;
   text-shadow: 1px 1px 0.6px black;
 }
+
+.titulo_bookdown {
+  font-weight: bold;
+  font-size: 13px;
+  margin-top: 7px;
+}
