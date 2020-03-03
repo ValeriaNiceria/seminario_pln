@@ -21,16 +21,16 @@ Atualmente, vivemos na era do Big Data, ou seja, estamos gerando dados a todo mo
 Agora, que sabemos que é possível obter informações, de grandes volumes de textos, vejamos como é o processo de obtenção dessas informações:
 
 - **Começar com uma pergunta:**
-    Primeiramente, devemos ter uma pergunta que queremos responder, como, por exemplo: _O que as pessoas que estão falando sobre data science?_
+  Primeiramente, devemos ter um problema que queremos resolver, ou uma pergunta que desejamos responder, como, por exemplo: _O que as pessoas que estão falando sobre data science?_
 
 - **Obter os dados:**
   Agora, que temos um questionamento, precisamos conseguir os dados que o responda, sendo assim, irei utilizar como fonte de dados, o que as pessoas estão conversando no Twitter.
 
 - **Limpar:**
-  E com os nossos dados em mãos, iremos realizar outra etapa do processo de mineração de dados, que é a limpeza dos nossos dados, removendo caracteres especiais, como acentos, pontuações, colocando todas as palavras em uma só estrutura, como, por exemplo, maiúsculo ou minúsculo e remover todas as palavras de ligação, como as **stopwords**: _a, e, os, de, com, etc_. Que serão irrelevantes para a pergunta que queremos responder.
+  E com os nossos dados em mãos, iremos realizar outra etapa do processo, que é a limpeza dos nossos dados, removendo caracteres especiais, como acentos, pontuações, colocando todas as palavras em uma só estrutura, como, por exemplo, maiúsculo ou minúsculo e removeremos todas as **stopwords**, que são palavras irrelevantes para a pergunta que queremos responder.
   
 - **Analisar:**
-  Com os nossos dados prontos, iremos realizar uma das partes mais divertidas, que é analisar os nossos dados, onde iremos aplicar diversas técnicas e verificar se com o dados que possuímos, poderemos responder à pergunta que nos motivou a analisar esses dados.
+  Com os nossos dados prontos, iremos realizar uma das partes mais divertidas, que é analisar os nossos dados, onde poderemos aplicar diversas técnicas e verificar se com o dados que possuímos, responderemos à pergunta que nos motivou a analisar esses dados.
 
 - **Visualizar:**
   Nessa etapa, poderemos visualizar o resultado da nossa análise e assim gerar diversas opções de gráficos, como, por exemplo, nuvem de palavras.

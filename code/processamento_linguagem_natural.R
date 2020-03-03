@@ -28,7 +28,7 @@ modelo = udpipe::udpipe_download_model(language = "portuguese")
 
 # Carregando o modelo baixado
 modelo = udpipe::udpipe_load_model("portuguese-bosque-ud-2.4-190531.udpipe")
-
+  
 # Anotações no formato CoNLL-U
 anotar <- 
   udpipe::udpipe_annotate(
