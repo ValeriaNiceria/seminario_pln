@@ -14,7 +14,7 @@ link-citations: yes
 
 Atualmente, vivemos na era do Big Data, ou seja, estamos gerando dados a todo momento, porém, na maioria das vezes, são dados não estruturados, como notícias, e-mails e documentos de forma geral. Mineração de textos ou do inglês _Text Mining_, tem como objetivo, encontrar termos relevantes e estabelecer relacionamento entre eles de acordo com a sua frequência e assim extrair informações de grandes volumes de textos.
 
-## Ciclos da Mineração de Textos
+## Workflow
 
 ![](_bookdown_files/bookdown_files/figure-html/ciclo_mineracao.png)
 
