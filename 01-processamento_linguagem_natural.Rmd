@@ -4,12 +4,13 @@
 
 Enquanto, mineração de texto, busca extrair informação de grandes volumes de textos, processamento de linguagem natural, procura fazer com que os computadores consigam entender ou produzir linguagem natural, que é a linguagem que nós humanos utilizamos para nos comunicar. Existem varias aplicações de processamento de linguagem natural, como, por exemplo:
 
-- Tradução.
-- Análise de sentimentos.
-- Reconhecimento de fala.
-- Sintetização de fala.
-- Resumos.
-- etc.
+- **Tradução:** O google translate, ou outros aplicativos de tradução.
+- **Análise de sentimentos:** Onde é possível identificar, por exemplo, se uma campanha de marketing foi recebida de forma positiva ou não, analisando os comentários das pessoas.
+- **Reconhecimento de fala:** As assistentes de voz, como a Siri ou o Google Assistente.
+- **Sintetização de fala:** O GPS que fala se você deve ir para direita ou esquerda.
+- **Respostas a perguntas:** Chatbots, onde algumas empresas estão utilizando como primeiro contato ao cliente.
+
+Esses foram somente, alguns exemplos das possibilidades de utilização do processamento de linguagem natural.
 
 ## Conceitos:
 Precisamos, entender alguns conceitos do processamento de linguagem natural, para, quando chegar o momento de construirmos um projeto, ficar mais simples de assimilar algumas coisas que serão feitas.
@@ -18,7 +19,7 @@ Precisamos, entender alguns conceitos do processamento de linguagem natural, par
 
 - **Annotations:** Processo de adicionar anotações no texto, como flexões, dependências e etc.
 
-- **Tokenization:** Dividir o corpus em uma sequência de palavras, pontos e etc.
+- **Tokenization:** Dividir o corpus em uma sequência de palavras, pontos e etc, que são conhecidos como **tokens**.
 
 - **Parts-of-Speech Tagging:** Também conhecido como POS Tagging, adiciona tags a cada token, como, por exemplo: verbo, substativo, adjetivo e etc.
 
