@@ -2,101 +2,27 @@
 
 ![](_bookdown_files/bookdown_files/figure-html/banner.png)
 
-## O que é?
+Enquanto, mineração de texto, busca extrair informação de grandes volumes de textos, processamento de linguagem natural, procura fazer com que os computadores consigam entender ou produzir linguagem natural, que é a linguagem que nós humanos utilizamos para nos comunicar. Existem varias aplicações de processamento de linguagem natural, como, por exemplo:
 
-De forma simplificada é fazer com que o computador entenda a comunicação humana, seja pela fala ou escrita.
-
-Interpretação ou produção de linguagem humana por computador.
-
-## Níveis
-
-- Morfologia: Estrutura das palavras.
-- Sintaxe: A forma em que as palavras são utilizadas.
-- Semântica: Significado.
-- Pragmática: Significado no contexto.
-
-## Ajudar vs Substituir
-
-- Campo de conhecimento complexo.
-- Maior sucesso em escopo delimitado.
-
-## Aplicações
-
-- Respostas a perguntas. (IBM Watsom)
-- Tradução. (Google translate)
-- Correção ortográfica.
+- Tradução.
 - Análise de sentimentos.
-- Reconhecimento ótico de caracteres (OCR).
 - Reconhecimento de fala.
 - Sintetização de fala.
-- Previsão de digitação.
-- Classificação de textos e documentos.
 - Resumos.
+- etc.
 
-## Níveis de processamento
+## Conceitos:
+Precisamos, entender alguns conceitos do processamento de linguagem natural, para, quando chegar o momento de construirmos um projeto, ficar mais simples de assimilar algumas coisas que serão feitas.
 
-- **Fonológico:** Essa parte corresponde à interpretação dos sons da palavra.
+- **Corpus:** Conjunto de textos.
 
-- **Morfológico:** Estudo sobre a natureza das palavras e suas composições. 
+- **Annotations:** Processo de adicionar anotações no texto, como flexões, dependências e etc.
 
-- **Lexical:** Processamento responsável por interpretar o significado de cada palavra.
+- **Tokenization:** Dividir o corpus em uma sequência de palavras, pontos e etc.
 
-- **Sintático:** Estuda a composição da frase.
+- **Parts-of-Speech Tagging:** Também conhecido como POS Tagging, adiciona tags a cada token, como, por exemplo: verbo, substativo, adjetivo e etc.
 
-- **Semântico:** Processamento que visa compreender o significado completo da frase.
-
-- **Discurso:** Estuda o texto como um todo.
-
-- **Pragmático:** Processamento utilizado para buscar significados além das palavras, as entrelinhas.
-
-## Conceitos
-
-- **Corpus:** Conjunto de dados (texto não estruturado) em linguagem natural.
-
-- **Annotations:** 
-  - Processo mais importante em PLN.
-  - Coloca anotações no texto, como flexões, dependências, etc.
-    
-- **Tokenization:** Processo de separar a sentença em suas partes: palavras, pontos, símbolos, etc.
-
-- **Parts-of-Speech (POS) Tagging:** Adiciona tags a cada token, como por exemplo, se é verbo, substantivo, adjetivo, etc.
-
-- **Lemmatizing (Lemma):** Traz a palavra na sua flexão, de modo que possam ser analisadas juntas.
+- **Lemmatizing ou Lemma:** Transforma a palavra na sua flexão.
 
 - **Dependency Parsing:** Encontra relação entre palavras "pais" e "filhos".
-
-
-## Modelo
-
-- **Análise:**
-
-  - Verbo? Substantivo? Quais são as flexões? Quais as dependências?
-  
-- Um modelo é um banco de dados linguístico.
-
-- Específico de cada idioma.
-
-- Maioria das plataformas de PLN tem seus próprios modelo ou usam de terceiros.
-
-
-## UD
-
-- Projeto Open Source
-- Banco de dados para mais de 60 idiomas
-
-## CoNLL-U
-
-Formato padrão para annotations
-
-## Pacote UDpipe
-
-- Biblioteca para C++, Java, C#, Python, R
-- Tokenization, POS Tagging, Lemmatization, Dependecy Parsing
-- Sem dependências externas (ex.Java)
-- Funções de anotação no formato CoNLL-U Format
-  - http:://universaldependencies.org/format.html#conll-u-format
-- Modelo em português (e outros 50 idiomas)
-- Você pode criar seu próprio modelo
-
-
 

@@ -44,11 +44,11 @@ Agora, que sabemos que é possível obter informações, de grandes volumes de t
 Antes, de continuarmos, vamos conhecer alguns conceitos:
 
 - **Corpus:** Conjuntos de textos.
-- **Stopwords:** Como comentado anteriormente, são palavras consideradas irrelevantes, para o resultado da mineração e existem stopwords para todos idiomas.
+- **Stopwords:** Como comentado anteriormente, são palavras que não adicionam sentido ao texto, como palavras de ligação por exemplo e existem listas de stopwords para vários idiomas na internet.
 
 ## Criando um projeto
 
-Chegou o momento mais divertido onde criaremos um projeto de text mining, e para isso, utilizaremos a linguagem de programação [R](https://cran.r-project.org/) e os seguintes pacotes:
+Chegou o momento mais divertido onde criaremos um projeto básico de text mining, e para isso, utilizaremos a linguagem de programação [R](https://cran.r-project.org/) e os seguintes pacotes:
 
 - _'rtweet'_ para conectarmos a api do Twitter.
 - _'tm'_ para realizarmos a mineração dos textos.
