@@ -11,7 +11,7 @@ library(wordcloud)
 library(tidyverse)
 
 # Buscando os tweets com a #datascience
-datascience_tweet <- search_tweets(
+datascience_tweets <- search_tweets(
   "#datascience",
   n = 18000,
   include_rts = FALSE,
@@ -19,7 +19,7 @@ datascience_tweet <- search_tweets(
 )
 
 # Gerando um gráfico com a frequencia dos tweets no intervalo de 1 hora
-datascience_tweet %>% 
+datascience_tweets %>% 
   ts_plot("1 hours") +
   ggplot2::theme_minimal() +
   ggplot2::theme(plot.title = ggplot2::element_text(face = "bold")) +
@@ -31,7 +31,7 @@ datascience_tweet %>%
   )
 
 # Atribuindo os textos a uma variável
-datascience_texto <- datascience_tweet$text
+datascience_texto <- datascience_tweets$text
 
 # Transformando os textos em um corpus
 datascience_corpus <- VCorpus(VectorSource(datascience_texto))
@@ -57,6 +57,7 @@ wordcloud(
   datascience_corpus,
   min.freq = 2,
   max.words = 100,
+  random.order=FALSE,
   colors = paleta
 )
 
@@ -82,7 +83,7 @@ df_datascience <- data.frame(
 # Gerando um gráfico da frequência
 df_datascience %>%
   filter(!word %in% c("datascience", "via")) %>% 
-  subset(freq > 450) %>% 
+  subset(freq > 450) %>%
   ggplot(aes(x = reorder(word, freq),
              y = freq)) +
   geom_bar(stat = "identity", fill='#0c6cad', color="#075284") +
@@ -102,3 +103,21 @@ devtools::install_github("lchiffon/wordcloud2")
 library(wordcloud2)
 
 wordcloud2(data = df_datascience)
+
+
+# Removendo os termos menos frequentes
+datascience_doc1 <- removeSparseTerms(datascience_document, 0.95)
+
+# Clustering 1 = Dendograma
+distancia <- dist(t(datascience_doc1), method = "euclidian")
+dendograma <- hclust(d = distancia, method = "complete")
+plot(dendograma, habg = -1, main = "Dendograma Tweets Data Science",
+     xlab = "Distância",
+     ylab = "Altura")
+
+# Clustering 2 - k-means
+kmeans_datascience <- kmeans(distancia, 10)
+clusplot(as.matrix(distancia), kmeans_datascience$cluster, color = T, share = T, labels = 3, lines = 0,
+         main = "K-Means Tweets Data Science",
+         xlab = "PC1",
+         ylab = "PC2")
