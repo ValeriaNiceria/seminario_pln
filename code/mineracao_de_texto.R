@@ -18,7 +18,7 @@ datascience_tweets <- search_tweets(
   lang = "en"
 )
 
-# Gerando um gráfico com a frequencia dos tweets no intervalo de 1 hora
+# Gerando um gráfico com a frequência dos tweets no intervalo de 1 hora
 datascience_tweets %>% 
   ts_plot("1 hours") +
   ggplot2::theme_minimal() +

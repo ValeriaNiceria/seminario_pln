@@ -172,7 +172,7 @@ wordcloud(
 ```
 ![](_bookdown_files/bookdown_files/figure-html/nuvem.png)
 
-Criando uma matriz de termos _(DocumentTermMatrix)_, removendo os termos menos frequentes e somando os termos para assim verificar os termos mais frequentes.
+Criando uma matriz de documentos-termos _(DocumentTermMatrix)_, removendo os termos menos frequentes da matriz e somando os termos restantes para assim verificar os termos mais frequentes.
 
 ```{r eval=FALSE}
 # Criando uma matriz de termos

@@ -14,14 +14,27 @@ library(syuzhet)
 
 # Buscando tweets relacionados a economia
 economia_tweets <- search_tweets(
-  "#economia",
-  n = 18000,
+  "#economy",
+  n = 2000,
   include_rts = FALSE,
-  lang = "pt"
+  lang = "en"
 )
 
 # Visualizando o resultado da busca
 View(economia_tweets)
+
+
+# Gerando um gráfico com a frequência dos tweets no intervalo de 1 hora
+economia_tweets %>% 
+  ts_plot("1 hours") +
+  ggplot2::theme_minimal() +
+  ggplot2::theme(plot.title = ggplot2::element_text(face = "bold")) +
+  ggplot2::labs(
+    x = NULL, y = NULL,
+    title = "Frequência de #economy no Twitter",
+    subtitle = "Tweets no intervalo de 1 hora",
+    caption = "\nSource: Dados coletados do Twitter's REST API via rtweet"
+  )
 
 
 # Separando o texto
@@ -55,7 +68,7 @@ economia_text <- limpar_texto(economia_text)
 economia_corpus <- VCorpus(VectorSource(economia_text))
 
 # Removendo stopwords
-economia_corpus <-  economia_corpus %>% tm_map(removeWords, stopwords("portuguese"))
+economia_corpus <-  economia_corpus %>% tm_map(removeWords, stopwords("english"))
 
 # Visualizando os dados em uma nuvem de palavras
 
@@ -64,11 +77,39 @@ paleta <- brewer.pal(8, "Dark2")
 
 wordcloud(economia_corpus, min.freq = 15, max.words = 250, random.order = F, colors = paleta)
 
-# Transformando o corpus em matriz de termos
+# Transformando o corpus em matriz de documentos-termos
 economia_doc <-  DocumentTermMatrix(economia_corpus)
 
 # Removendo os termos menos frequentes
 economia_doc1 <- removeSparseTerms(economia_doc, 0.97)
+
+
+# Gerando uma matrix ordenada, com o termos mais frequentes
+economia_freq <- 
+  economia_doc1 %>% 
+  as.matrix() %>% 
+  colSums() %>% 
+  sort(decreasing = T)
+
+
+# Criando um dataframe com as palavras mais frequentes
+df_economia_freq <- data.frame(
+  word = names(economia_freq),
+  freq = economia_freq
+)
+
+
+# Gerando um gráfico da frequência
+df_economia_freq %>%
+  filter(!word %in% c("economy")) %>% 
+  subset(freq > 50) %>%
+  ggplot(aes(x = reorder(word, freq),
+             y = freq)) +
+  geom_bar(stat = "identity", fill='#0c6cad', color="#075284") +
+  theme(axis.text.x = element_text(angle = 45, hjus = 1)) +
+  ggtitle("Termos relacionados a Economia mais frequentes no Twitter") +
+  labs(y = "Frequência", x = "Termos") +
+  coord_flip()
 
 # Dendograma -> Visualizando os grupos
 distancia <- dist(t(economia_doc1), method = "euclidian")
@@ -82,7 +123,7 @@ plot(dendograma, habg = -1, main = "Dendograma Tweets Economia",
 # Iniciando a análise de sentimentos ----
 
 # Obtendo os emoções
-economia_sentimento <- get_nrc_sentiment(economia_doc$dimnames$Terms, language = "portuguese")
+economia_sentimento <- get_nrc_sentiment(economia_doc$dimnames$Terms, language = "english")
 
 
 View(economia_sentimento)
@@ -155,6 +196,3 @@ df_economia_sentimento <-
 
 # Visualizando os sentimentos
 gerar_grafico(df_economia_sentimento, titulo = "Sentimentos das pessoas em relação a Economia")
-
-
-
