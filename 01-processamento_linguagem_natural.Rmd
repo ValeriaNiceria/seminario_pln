@@ -27,3 +27,23 @@ Precisamos, entender alguns conceitos do processamento de linguagem natural, par
 
 - **Dependency Parsing:** Encontra relação entre palavras "pais" e "filhos".
 
+
+## Código exemplo
+
+Para exemplificar uma utilização do PLN, tentaremos responder a seguinte pergunta, "Qual é o sentimento das pessoas em relação a economia?", agora, que já definimos, algo, que tentaremos responder, precisaremos de dados, e utilizaremos os comentários do Twitter, como fonte desses dados.
+O projeto de exemplificação será construido utilizando a linguagem [R](cran.r) e será necessário ter os seguintes pacotes instalados em seu computador:
+
+- _'tydeverse'_ É um pacote, que possui um coleção de pacotes inclusos, para ajudar na manipulação dos dados.
+- _'rtweet'_ É um pacote, que permitirá que você se conecte ao Twitter, caso você tenha uma conta, onde você poderá realizar buscas, com no máximo 18 mil tweets.
+- _'tm'_ O pacote tm de "Text Mining" é um pacote utilizado para trabalharmos textos.
+- _'wordcloud'_ É um pacote que nos permite visualizar de forma rápida, as palavras, utilizando como critério de tamanho, a frequência.
+- _'syuzhet'_ É um pacote, que utilizaremos para classificar as emoções.
+
+
+
+
+
+ 
+
+
+

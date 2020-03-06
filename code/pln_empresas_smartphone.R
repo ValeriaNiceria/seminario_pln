@@ -1,25 +1,21 @@
 # Instalando os pacotes
 # install.packages("tidyverse")
 # install.packages("rtweet")
-# sudo apt-get install libgsl0-dev
-# install.packages("topicmodels")
+# install.packages("tm")
+# install.packages("wordcloud")
+# install.packages("syuzhet")
 
 # Carregando os pacotes
 library(tidyverse)
 library(rtweet)
-library(NLP)
-library(syuzhet)
-library(stringi)
 library(tm)
-library(SnowballC)
-library(topicmodels)
+library(wordcloud)
 library(syuzhet)
-library(wordcloud2)
 
 # Buscando tweets relacionados a empresas de smartphone
-# iphone, samsung, xiaomi, huawei
-iphone_tweets <- search_tweets(
-  "#iphone",
+# apple, samsung, xiaomi, huawei
+apple_tweets <- search_tweets(
+  "#apple",
   n = 1000,
   include_rts = FALSE,
   lang = "en"
@@ -39,15 +35,8 @@ xiaomi_tweets <- search_tweets(
   lang = "en"
 )
 
-smartphone_tweets <- search_tweets(
-  "#smartphone",
-  n = 1000,
-  include_rts = FALSE,
-  lang = "en"
-)
-
-tec_tweets <- search_tweets(
-  "#technology",
+huawei_tweets <- search_tweets(
+  "#huawei",
   n = 1000,
   include_rts = FALSE,
   lang = "en"
@@ -55,19 +44,17 @@ tec_tweets <- search_tweets(
 
 
 # Visualizando os dados
-View(iphone_tweets)
+View(apple_tweets)
 View(samsung_tweets)
 View(xiaomi_tweets)
-View(smartphone_tweets)
-View(tec_tweets)
+View(huawei_tweets)
 
 
 # Separando o texto
-iphone_text <- iphone_tweets$text
+apple_text <- apple_tweets$text
 samsung_text <- samsung_tweets$text
 xiaomi_text <- xiaomi_tweets$text
-smartphone_text <- smartphone_tweets$text
-tec_text <- tec_tweets$text
+huawei_text <- huawei_tweets$text
 
 # Função para limpeza dos textos
 limpar_texto <- function(texto) {
@@ -90,66 +77,59 @@ limpar_texto <- function(texto) {
 
 
 # Limpando os textos
-iphone_text <- limpar_texto(iphone_text)
+apple_text <- limpar_texto(apple_text)
 samsung_text <- limpar_texto(samsung_text)
 xiaomi_text <- limpar_texto(xiaomi_text)
-smartphone_text <- tolower(smartphone_text)
-tec_text <- limpar_texto(tec_text)
+huawei_text <- limpar_texto(huawei_text)
 
 
 # Convertendo os textos em corpus
-iphone_corpus <- VCorpus(VectorSource(iphone_text))
+apple_corpus <- VCorpus(VectorSource(apple_text))
 samsung_corpus <- VCorpus(VectorSource(samsung_text))
 xiaomi_corpus <- VCorpus(VectorSource(xiaomi_text))
-smartphone_corpus <- VCorpus(VectorSource(smartphone_text))
-tec_corpus <- VCorpus(VectorSource(tec_text))
+huawei_corpus <- VCorpus(VectorSource(huawei_text))
 
 # Removendo stopwords
-iphone_corpus <-  iphone_corpus %>% tm_map(removeWords, stopwords("english"))
+apple_corpus <-  apple_corpus %>% tm_map(removeWords, stopwords("english"))
 samsung_corpus <- samsung_corpus %>% tm_map(removeWords, stopwords("english"))
 xiaomi_corpus <- xiaomi_corpus %>% tm_map(removeWords, stopwords("english"))
-smartphone_corpus <- smartphone_corpus %>%  tm_map(removeWords, stopwords("english"))
-tec_corpus <- tec_corpus %>%  tm_map(removeWords, stopwords("english"))
-
+huawei_corpus <- huawei_corpus %>%  tm_map(removeWords, stopwords("english"))
 
 # Visualizando os dados em uma nuvem de palavras
 
 # Lista de cores em hexadecimal
 paleta <- brewer.pal(8, "Dark2")
 
-wordcloud(iphone_corpus, min.freq = 15, max.words = 250, random.order = F, colors = paleta)
+wordcloud(apple_corpus, min.freq = 15, max.words = 250, random.order = F, colors = paleta)
 wordcloud(samsung_corpus, min.freq = 15, max.words = 250, random.order = F, colors = paleta)
 wordcloud(xiaomi_corpus, min.freq = 15, max.words = 250, random.order = F, colors = paleta)
-wordcloud(smartphone_corpus, min.freq = 15, max.words = 250, random.order = F, colors = paleta)
-wordcloud(tec_corpus, min.freq = 15, max.words = 250, random.order = F, colors = paleta)
-
+wordcloud(huawei_corpus, min.freq = 15, max.words = 250, random.order = F, colors = paleta)
 
 # Transformando o corpus em matriz de termos
-iphone_doc <-  DocumentTermMatrix(iphone_corpus)
+apple_doc <-  DocumentTermMatrix(apple_corpus)
 samsung_doc <- DocumentTermMatrix(samsung_corpus)
 xiaomi_doc <- DocumentTermMatrix(xiaomi_corpus)
-smartphone_doc <- DocumentTermMatrix(smartphone_corpus)
-tec_doc <- DocumentTermMatrix(tec_corpus)
+huawei_doc <- DocumentTermMatrix(huawei_corpus)
 
 
 # Iniciando a análise de sentimentos ----
 
 # Obtendo os emoções
-iphone_sentiment <- get_nrc_sentiment(iphone_doc$dimnames$Terms)
+apple_sentiment <- get_nrc_sentiment(apple_doc$dimnames$Terms)
 samsung_sentiment <- get_nrc_sentiment(samsung_doc$dimnames$Terms)
 xiaomi_sentiment <- get_nrc_sentiment(xiaomi_doc$dimnames$Terms)
-smartphone_sentiment <- get_nrc_sentiment(smartphone_doc$dimnames$Terms)
-tec_sentiment <- get_nrc_sentiment(tec_doc$dimnames$Terms)
+huawei_sentiment <- get_nrc_sentiment(huawei_doc$dimnames$Terms)
 
+
+View(apple_sentiment)
 
 # Calculando a frequência dos sentimentos
-iphone_sentiment_freq <- iphone_sentiment %>% colSums() %>% sort(decreasing = T)
+apple_sentiment_freq <- apple_sentiment %>% colSums() %>% sort(decreasing = T)
 samsung_sentiment_freq <- samsung_sentiment %>% colSums() %>% sort(decreasing = T)
 xiaomi_sentiment_freq <- xiaomi_sentiment %>% colSums() %>% sort(decreasing = T)
-smartphone_sentiment_freq <- smartphone_sentiment %>% colSums() %>% sort(decreasing = T)
-tec_sentiment_freq <- tec_sentiment %>% colSums() %>% sort(decreasing = T)
+huawei_sentiment_freq <- huawei_sentiment %>% colSums() %>% sort(decreasing = T)
 
-
+# Função responsável por traduzir os sentimentos e transformar em dataframe
 gerar_dataframe_sentimentos <- function(dados) {
   sentimetos_translate <- 
     data.frame(
@@ -191,12 +171,14 @@ gerar_dataframe_sentimentos <- function(dados) {
   return(df_sentiment)
 }
 
+# Função responsável por criar um gráfico da frequência dos sentimentos
 gerar_grafico <- function(dados, titulo) {
   plot <- 
     ggplot(data = dados,
-           aes(x = sentimentos, y = freq)) +
+           aes(x = reorder(sentimentos, -freq), y = freq)) +
       geom_bar(aes(fill=sentimentos), stat = "identity") +
-      theme(legend.position = "none", axis.text.x = element_text(angle = 45, hjus = 1)) +
+      theme(legend.position = "none",
+            axis.text.x = element_text(angle = 45, hjus = 1)) +
       xlab("Sentimentos") +
       ylab("Frequência") +
       ggtitle(titulo)
@@ -205,8 +187,8 @@ gerar_grafico <- function(dados, titulo) {
 }
 
 # Transformando a frequência dos sentimentos em dataframe
-df_iphone_sentiment <- 
-  gerar_dataframe_sentimentos(iphone_sentiment_freq)
+df_apple_sentiment <- 
+  gerar_dataframe_sentimentos(apple_sentiment_freq)
 
 df_samsung_sentiment <- 
   gerar_dataframe_sentimentos(samsung_sentiment_freq)
@@ -214,13 +196,15 @@ df_samsung_sentiment <-
 df_xiaomi_sentiment <- 
   gerar_dataframe_sentimentos(xiaomi_sentiment_freq)
 
-df_smartphone_sentiment <- 
-  gerar_dataframe_sentimentos(smartphone_sentiment_freq)
-
-df_tec_sentiment <- 
-  gerar_dataframe_sentimentos(tec_sentiment_freq)
-
+df_huawei_sentiment <- 
+  gerar_dataframe_sentimentos(huawei_sentiment_freq)
 
 
 # Visualizando os sentimentos
-gerar_grafico(df_iphone_sentiment, titulo = "Sentimentos das pessoas em relação ao Iphone")
+gerar_grafico(df_apple_sentiment, titulo = "Sentimentos das pessoas em relação a Apple")
+
+gerar_grafico(df_samsung_sentiment, titulo = "Sentimentos das pessoas em relação a Samsung")
+
+gerar_grafico(df_xiaomi_sentiment, titulo = "Sentimentos das pessoas em relação a Xiaomi")
+
+gerar_grafico(df_huawei_sentiment, titulo = "Sentimentos das pessoas em relação a Huawei")

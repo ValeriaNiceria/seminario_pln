@@ -46,7 +46,7 @@ Antes, de continuarmos, vamos conhecer alguns conceitos:
 - **Corpus:** Conjuntos de textos.
 - **Stopwords:** Como comentado anteriormente, são palavras que não adicionam sentido ao texto, como palavras de ligação por exemplo e existem listas de stopwords para vários idiomas na internet.
 
-## Criando um projeto
+## Código exemplo
 
 Chegou o momento mais divertido onde criaremos um projeto básico de text mining, e para isso, utilizaremos a linguagem de programação [R](https://cran.r-project.org/) e os seguintes pacotes:
 
