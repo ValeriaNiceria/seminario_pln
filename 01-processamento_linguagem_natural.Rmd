@@ -19,7 +19,7 @@ O projeto de exemplificação será construido utilizando a linguagem [R](cran.r
 
 - _'tydeverse'_ É um pacote, que possui uma coleção de pacotes inclusos, para ajudar na manipulação dos dados.
 - _'rtweet'_ É um pacote, que permitirá que você se conecte ao Twitter, caso você tenha uma conta, onde você poderá realizar buscas, com no máximo 18 mil tweets.
-- _'tm'_ O pacote tm de "Text Mining" é um pacote utilizado para trabalharmos textos.
+- _'tm'_ O pacote tm de "Text Mining" é um pacote utilizado para trabalharmos com textos.
 - _'wordcloud'_ É um pacote que nos permite visualizar de forma rápida, as palavras, utilizando como critério de tamanho, a frequência.
 - _'syuzhet'_ É um pacote, que utilizaremos para classificar as sentimentos.
 
@@ -53,22 +53,6 @@ economia_tweets <- search_tweets(
   include_rts = FALSE,
   lang = "en"
 )
-```
-
-Visualizando o uso da _#economy_ em um intervalo de 1 hora.
-
-```{r eval=FALSE}
-# Gerando um gráfico com a frequência dos tweets no intervalo de 1 hora
-economia_tweets %>% 
-  ts_plot("1 hours") +
-  ggplot2::theme_minimal() +
-  ggplot2::theme(plot.title = ggplot2::element_text(face = "bold")) +
-  ggplot2::labs(
-    x = NULL, y = NULL,
-    title = "Frequência de #economy no Twitter",
-    subtitle = "Tweets no intervalo de 1 hora",
-    caption = "\nSource: Dados coletados do Twitter's REST API via rtweet"
-  )
 ```
 
 Agora, iniciaremos o pré-processamento do nosso texto e para simplificar o nosso trabalho, vamos separar a coluna _'text'_ em uma variável.

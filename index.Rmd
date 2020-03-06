@@ -51,9 +51,9 @@ Antes, de continuarmos, vamos conhecer alguns conceitos:
 Chegou o momento mais divertido onde criaremos um projeto básico de text mining, e para isso, utilizaremos a linguagem de programação [R](https://cran.r-project.org/) e os seguintes pacotes:
 
 - _'rtweet'_ É um pacote, que permitirá que você se conecte ao Twitter, caso você tenha uma conta, onde você poderá realizar buscas, com no máximo 18 mil tweets.
-- _'tm'_ O pacote tm de "Text Mining" é um pacote utilizado para trabalharmos textos.
+- _'tm'_ O pacote tm de "Text Mining" é um pacote utilizado para trabalharmos com textos.
 - _'wordcloud'_ É um pacote que nos permite visualizar de forma rápida, as palavras, utilizando como critério de tamanho, a frequência.
-- _'tydeverse'_ paÉ um pacote, que possui uma coleção de pacotes inclusos, para ajudar na manipulação dos dados.
+- _'tydeverse'_ É um pacote, que possui uma coleção de pacotes inclusos, para ajudar na manipulação dos dados.
   
 
 Primeiramente, vamos instalar os pacotes que serão necessários durante o projeto:
