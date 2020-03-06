@@ -15,7 +15,7 @@ library(syuzhet)
 # Buscando tweets relacionados a economia
 economia_tweets <- search_tweets(
   "#economia",
-  n = 18000,
+  n = 1500,
   include_rts = FALSE,
   lang = "pt"
 )
@@ -54,8 +54,14 @@ economia_text <- limpar_texto(economia_text)
 # Convertendo os textos em corpus
 economia_corpus <- VCorpus(VectorSource(economia_text))
 
-# Removendo stopwords
-economia_corpus <-  economia_corpus %>% tm_map(removeWords, stopwords("portuguese"))
+# Removendo stopwords 
+economia_corpus <-  economia_corpus %>%
+  tm_map(
+    content_transformer(
+      function(x) iconv(x, from = 'UTF-8', to = 'ASCII//TRANSLIT')
+    )
+  ) %>% 
+  tm_map(removeWords, stopwords("portuguese"))
 
 # Visualizando os dados em uma nuvem de palavras
 
@@ -77,6 +83,23 @@ plot(dendograma, habg = -1, main = "Dendograma Tweets Economia",
      xlab = "Distância",
      ylab = "Altura")
 
+
+# Gerando uma matrix ordenada, com o termos mais frequentes
+economia_freq1 <- 
+  economia_doc1 %>% 
+  as.matrix() %>% 
+  colSums() %>% 
+  sort(decreasing = T)
+
+# Criando um dataframe com as palavras mais frequentes
+df_economia_freq1 <- data.frame(
+  word = names(economia_freq1),
+  freq = economia_freq1
+)
+
+# Gerando uma nuvem de palavras, onde os termos esparsos foram removidos
+library(wordcloud2)
+wordcloud2(data = df_economia_freq1)
 
 
 # Iniciando a análise de sentimentos ----
