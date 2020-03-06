@@ -254,6 +254,7 @@ O projeto de exemplificação será construido utilizando a linguagem <a href="c
 <a class="sourceLine" id="cb9-8" data-line-number="8">  <span class="dt">random.order =</span> F,</a>
 <a class="sourceLine" id="cb9-9" data-line-number="9">  <span class="dt">colors =</span> paleta</a>
 <a class="sourceLine" id="cb9-10" data-line-number="10">)</a></code></pre></div>
+<p><img src="_bookdown_files/bookdown_files/figure-html/economy_nuvem.png" /></p>
 <p>Agora, transformaremos o nosso <em>corpus</em> em uma <em>matriz de documentos-termos</em>, para assim criarmos um gráfico de barras com os termos e sua frequência.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># Lista de cores em hexadecimal</span></a>
 <a class="sourceLine" id="cb10-2" data-line-number="2"><span class="co"># Transformando o corpus em matriz de documentos-termos</span></a>
@@ -289,6 +290,8 @@ O projeto de exemplificação será construido utilizando a linguagem <a href="c
 <a class="sourceLine" id="cb10-32" data-line-number="32"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Termos relacionados a Economia mais frequentes no Twitter&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb10-33" data-line-number="33"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Frequência&quot;, x = &quot;</span>Termos<span class="st">&quot;) +</span></a>
 <a class="sourceLine" id="cb10-34" data-line-number="34"><span class="st">  coord_flip()</span></a></code></pre></div>
+<p><img src="_bookdown_files/bookdown_files/figure-html/freq_economy.png" /></p>
+<p><img src="_bookdown_files/bookdown_files/figure-html/nuvem2_economy.png" /></p>
 <p>Criando um <em>dendrograma</em>, que é um diagrama de árvore, onde será possível visualizar o agrupamento dos nossos termos.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># Dendrograma -&gt; Visualizando os grupos</span></a>
 <a class="sourceLine" id="cb11-2" data-line-number="2">distancia &lt;-<span class="st"> </span><span class="kw">dist</span>(<span class="kw">t</span>(economia_doc1), <span class="dt">method =</span> <span class="st">&quot;euclidian&quot;</span>)</a>
@@ -296,6 +299,7 @@ O projeto de exemplificação será construido utilizando a linguagem <a href="c
 <a class="sourceLine" id="cb11-4" data-line-number="4"><span class="kw">plot</span>(dendrograma, <span class="dt">habg =</span> <span class="dv">-1</span>, <span class="dt">main =</span> <span class="st">&quot;Dendrograma Tweets Economia&quot;</span>,</a>
 <a class="sourceLine" id="cb11-5" data-line-number="5">     <span class="dt">xlab =</span> <span class="st">&quot;Distância&quot;</span>,</a>
 <a class="sourceLine" id="cb11-6" data-line-number="6">     <span class="dt">ylab =</span> <span class="st">&quot;Altura&quot;</span>)</a></code></pre></div>
+<p><img src="_bookdown_files/bookdown_files/figure-html/dendrograma_economy.png" /></p>
 <p>Agora, realizaremos a <em>análise de sentimentos</em>, dos nossos tweets e para tal análise utilizaremos a função <em>get_nrc_sentiment</em> do pacote <em>syuzhet</em>, onde passaremos como parametro, os termos da nossa <em>matriz de documentos-termos</em>. E após, obtermos as emoções dos nossos termos, faremos o calculo da frequência dos sentimentos que utilizaram a <strong>#economy</strong>.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># Obtendo os emoções</span></a>
 <a class="sourceLine" id="cb12-2" data-line-number="2">economia_sentimento &lt;-<span class="st"> </span><span class="kw">get_nrc_sentiment</span>(</a>
@@ -358,6 +362,7 @@ O projeto de exemplificação será construido utilizando a linguagem <a href="c
 <a class="sourceLine" id="cb13-48" data-line-number="48"><span class="st">    </span><span class="kw">xlab</span>(<span class="st">&quot;Sentimentos&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb13-49" data-line-number="49"><span class="st">    </span><span class="kw">ylab</span>(<span class="st">&quot;Frequência&quot;) +</span></a>
 <a class="sourceLine" id="cb13-50" data-line-number="50"><span class="st">    ggtitle(titulo)</span></a></code></pre></div>
+<p><img src="_bookdown_files/bookdown_files/figure-html/sentimento_economy.png" /></p>
 
 </div>
 </div>

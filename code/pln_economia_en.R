@@ -118,6 +118,10 @@ plot(dendograma, habg = -1, main = "Dendograma Tweets Economia",
      xlab = "Distância",
      ylab = "Altura")
 
+# Gerando uma nuvem de palavras com 'wordcloud2'
+dados_nuvem <- df_economia_freq %>% filter(word != "economy")
+wordcloud2::wordcloud2(data = df_economia_freq)
+
 
 
 # Iniciando a análise de sentimentos ----
