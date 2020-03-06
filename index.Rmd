@@ -10,13 +10,13 @@ link-citations: yes
 ---
 # Mineração de Textos
 
-![](_bookdown_files/bookdown_files/figure-html/mineracao.png)
+![](img/mineracao.png)
 
 Atualmente, vivemos na era do Big Data, ou seja, estamos gerando dados a todo momento, porém, na maioria das vezes, são dados não estruturados, como notícias, e-mails e documentos de forma geral. Mineração de textos ou do inglês _Text Mining_, tem como objetivo, encontrar termos relevantes e estabelecer relacionamento entre eles de acordo com a sua frequência e assim extrair informações de grandes volumes de textos.
 
 ## Workflow
 
-![](_bookdown_files/bookdown_files/figure-html/ciclo_mineracao.png)
+![](img/ciclo_mineracao.png)
 
 Agora, que sabemos que é possível obter informações, de grandes volumes de textos, vejamos como é o processo de obtenção dessas informações:
 
@@ -126,7 +126,7 @@ datascience_tweet %>%
   )
 ```
 
-![](_bookdown_files/bookdown_files/figure-html/freq_twitter_1hora.png)
+![](img/freq_twitter_1hora.png)
 
 Vamos começar a mineração dos textos e para isso iremos pegar a (coluna) _text_ e atribuir a uma variável.
  
@@ -170,7 +170,7 @@ wordcloud(
   colors = paleta
 )
 ```
-![](_bookdown_files/bookdown_files/figure-html/nuvem.png)
+![](img/nuvem.png)
 
 Criando uma matriz de documentos-termos _(DocumentTermMatrix)_, removendo os termos menos frequentes da matriz e somando os termos restantes para assim verificar os termos mais frequentes.
 
@@ -212,7 +212,7 @@ df_datascience %>%
 
 ```
 
-![](_bookdown_files/bookdown_files/figure-html/freq.png)
+![](img/freq.png)
 
 E podemos visualizar o resultado em uma nuvem de palavras, porém utilizaremos outro pacote para gerar a nuvem que é o _wordcloud2_, pois ele gera uma nuvem de palavras mais bonita que o pacote que utilizamos até o momento,  mas antes, temos que instalar o pacote em nosso computador e utilizamos o comando abaixo para realizar a instalação.
 
@@ -235,7 +235,7 @@ wordcloud2(data = df_datascience)
 
 ```
 
-![](_bookdown_files/bookdown_files/figure-html/nuvem2.png)
+![](img/nuvem2.png)
 
 E podemos visualizar como os nossos termos estão agrupados, e para isso produziremos um dendrograma de agrupamento hierárquico, que é um diagrama de árvore.
 
@@ -252,4 +252,4 @@ plot(dendograma, habg = -1, main = "Dendograma Tweets Data Science",
 
 ```
 
-![](_bookdown_files/bookdown_files/figure-html/dendrograma_dt.png)
+![](img/dendrograma_dt.png)

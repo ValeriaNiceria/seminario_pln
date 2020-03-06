@@ -1,6 +1,6 @@
 # Processamento de Linguagem Natural
 
-![](_bookdown_files/bookdown_files/figure-html/banner.png)
+![](img/banner.png)
 
 Enquanto, mineração de texto, busca extrair informação de grandes volumes de textos, processamento de linguagem natural, procura fazer com que os computadores consigam entender ou produzir linguagem natural, que é a linguagem que nós humanos utilizamos para nos comunicar. Existem varias aplicações de processamento de linguagem natural, como, por exemplo:
 
@@ -133,7 +133,7 @@ wordcloud(
 )
 ```
 
-![](_bookdown_files/bookdown_files/figure-html/economy_nuvem.png)
+![](img/economy_nuvem.png)
 
 Agora, transformaremos o nosso _corpus_ em uma _matriz de documentos-termos_, para assim criarmos um gráfico de barras com os termos e sua frequência. 
 
@@ -175,9 +175,9 @@ df_economia_freq %>%
 
 ```
 
-![](_bookdown_files/bookdown_files/figure-html/freq_economy.png)
+![](img/freq_economy.png)
 
-![](_bookdown_files/bookdown_files/figure-html/nuvem2_economy.png)
+![](img/nuvem2_economy.png)
 
 Criando um _dendrograma_, que é um diagrama de árvore, onde será possível visualizar o agrupamento dos nossos termos.
 
@@ -191,7 +191,7 @@ plot(dendrograma, habg = -1, main = "Dendrograma Tweets Economia",
 
 ```
 
-![](_bookdown_files/bookdown_files/figure-html/dendrograma_economy.png)
+![](img/dendrograma_economy.png)
 
 Agora, realizaremos a _análise de sentimentos_, dos nossos tweets e para tal análise utilizaremos a função _get_nrc_sentiment_ do pacote _syuzhet_, onde passaremos como parametro, os termos da nossa _matriz de documentos-termos_. E após, obtermos as emoções dos nossos termos, faremos o calculo da frequência dos sentimentos que utilizaram a **#economy**.
 
@@ -265,4 +265,4 @@ ggplot(data = df_sentimento,
 
 ```
 
-![](_bookdown_files/bookdown_files/figure-html/sentimento_economy.png)
+![](img/sentimento_economy.png)
