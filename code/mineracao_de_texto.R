@@ -93,11 +93,23 @@ df_datascience %>%
   coord_flip()
 
 
+# Removendo os termos menos frequentes
+datascience_doc1 <- removeSparseTerms(datascience_document, 0.95)
+
+# Clustering 1 = Dendograma
+distancia <- dist(t(datascience_doc1), method = "euclidian")
+dendrograma <- hclust(d = distancia, method = "complete")
+plot(dendrograma, hang = -1, main = "Dendograma Tweets Data Science",
+     xlab = "Distância",
+     ylab = "Altura")
+
+
+
 # Carregando o pacote 'devtools'
 library(devtools)
 
 # Instalando o pacote 'wordcloud2'
-devtools::install_github("lchiffon/wordcloud2")
+devtools::install_github("lchiffon/wordcloud2", force = T)
 
 # Carregando o pacote 'wordcloud2'
 library(wordcloud2)
@@ -105,12 +117,3 @@ library(wordcloud2)
 wordcloud2(data = df_datascience)
 
 
-# Removendo os termos menos frequentes
-datascience_doc1 <- removeSparseTerms(datascience_document, 0.95)
-
-# Clustering 1 = Dendograma
-distancia <- dist(t(datascience_doc1), method = "euclidian")
-dendograma <- hclust(d = distancia, method = "complete")
-plot(dendograma, habg = -1, main = "Dendograma Tweets Data Science",
-     xlab = "Distância",
-     ylab = "Altura")

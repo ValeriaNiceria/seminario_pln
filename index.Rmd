@@ -237,7 +237,7 @@ wordcloud2(data = df_datascience)
 
 ![](_bookdown_files/bookdown_files/figure-html/nuvem2.png)
 
-E podemos visualizar como os nossos termos estão agrupados, e para isso geraremos um dendrograma, que é um diagrama de árvore.
+E podemos visualizar como os nossos termos estão agrupados, e para isso produziremos um dendrograma de agrupamento hierárquico, que é um diagrama de árvore.
 
 ```{r eval=FALSE}
 # Removendo os termos menos frequentes
@@ -251,3 +251,5 @@ plot(dendograma, habg = -1, main = "Dendograma Tweets Data Science",
      ylab = "Altura")
 
 ```
+
+![](_bookdown_files/bookdown_files/figure-html/dendrograma_dt.png)
