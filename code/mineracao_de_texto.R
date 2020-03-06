@@ -114,10 +114,3 @@ dendograma <- hclust(d = distancia, method = "complete")
 plot(dendograma, habg = -1, main = "Dendograma Tweets Data Science",
      xlab = "Distância",
      ylab = "Altura")
-
-# Clustering 2 - k-means
-kmeans_datascience <- kmeans(distancia, 10)
-clusplot(as.matrix(distancia), kmeans_datascience$cluster, color = T, share = T, labels = 3, lines = 0,
-         main = "K-Means Tweets Data Science",
-         xlab = "PC1",
-         ylab = "PC2")

@@ -137,8 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#código-exemplo"><i class="fa fa-check"></i><b>1.3</b> Código exemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="processamento-de-linguagem-natural.html"><a href="processamento-de-linguagem-natural.html"><i class="fa fa-check"></i><b>2</b> Processamento de Linguagem Natural</a><ul>
-<li class="chapter" data-level="2.1" data-path="processamento-de-linguagem-natural.html"><a href="processamento-de-linguagem-natural.html#conceitos-1"><i class="fa fa-check"></i><b>2.1</b> Conceitos:</a></li>
-<li class="chapter" data-level="2.2" data-path="processamento-de-linguagem-natural.html"><a href="processamento-de-linguagem-natural.html#código-exemplo-1"><i class="fa fa-check"></i><b>2.2</b> Código exemplo</a></li>
+<li class="chapter" data-level="2.1" data-path="processamento-de-linguagem-natural.html"><a href="processamento-de-linguagem-natural.html#código-exemplo-1"><i class="fa fa-check"></i><b>2.1</b> Código exemplo</a></li>
 </ul></li>
 </ul>
 
@@ -169,24 +168,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Respostas a perguntas:</strong> Chatbots, onde algumas empresas estão utilizando como primeiro contato ao cliente.</li>
 </ul>
 <p>Esses foram somente, alguns exemplos das possibilidades de utilização do processamento de linguagem natural.</p>
-<div id="conceitos-1" class="section level2">
-<h2><span class="header-section-number">2.1</span> Conceitos:</h2>
-<p>Precisamos, entender alguns conceitos do processamento de linguagem natural, para, quando chegar o momento de construirmos um projeto, ficar mais simples de assimilar algumas coisas que serão feitas.</p>
-<ul>
-<li><p><strong>Corpus:</strong> Conjunto de textos.</p></li>
-<li><p><strong>Annotations:</strong> Processo de adicionar anotações no texto, como flexões, dependências e etc.</p></li>
-<li><p><strong>Tokenization:</strong> Dividir o corpus em uma sequência de palavras, pontos e etc, que são conhecidos como <strong>tokens</strong>.</p></li>
-<li><p><strong>Parts-of-Speech Tagging:</strong> Também conhecido como POS Tagging, adiciona tags a cada token, como, por exemplo: verbo, substativo, adjetivo e etc.</p></li>
-<li><p><strong>Lemmatizing ou Lemma:</strong> Transforma a palavra na sua flexão.</p></li>
-<li><p><strong>Dependency Parsing:</strong> Encontra relação entre palavras “pais” e “filhos”.</p></li>
-</ul>
-</div>
 <div id="código-exemplo-1" class="section level2">
-<h2><span class="header-section-number">2.2</span> Código exemplo</h2>
-<p>Para exemplificar uma utilização do PLN, tentaremos responder a seguinte pergunta, “Qual é o sentimento das pessoas em relação a economia?”, agora, que já definimos, algo, que tentaremos responder, precisaremos de dados, e utilizaremos os comentários do Twitter, como fonte desses dados.
+<h2><span class="header-section-number">2.1</span> Código exemplo</h2>
+<p>Para exemplificar uma utilização do PLN, tentaremos responder a seguinte pergunta, “Qual é o sentimento das pessoas em relação a economia?”, agora, que definimos, algo, que tentaremos responder, precisaremos de dados, e utilizaremos os comentários do Twitter, como fonte desses dados.
 O projeto de exemplificação será construido utilizando a linguagem <a href="cran.r">R</a> e será necessário ter os seguintes pacotes instalados em seu computador:</p>
 <ul>
-<li><em>‘tydeverse’</em> É um pacote, que possui um coleção de pacotes inclusos, para ajudar na manipulação dos dados.</li>
+<li><em>‘tydeverse’</em> É um pacote, que possui uma coleção de pacotes inclusos, para ajudar na manipulação dos dados.</li>
 <li><em>‘rtweet’</em> É um pacote, que permitirá que você se conecte ao Twitter, caso você tenha uma conta, onde você poderá realizar buscas, com no máximo 18 mil tweets.</li>
 <li><em>‘tm’</em> O pacote tm de “Text Mining” é um pacote utilizado para trabalharmos textos.</li>
 <li><em>‘wordcloud’</em> É um pacote que nos permite visualizar de forma rápida, as palavras, utilizando como critério de tamanho, a frequência.</li>
@@ -213,7 +200,7 @@ O projeto de exemplificação será construido utilizando a linguagem <a href="c
 <a class="sourceLine" id="cb3-5" data-line-number="5">  <span class="dt">include_rts =</span> <span class="ot">FALSE</span>,</a>
 <a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="dt">lang =</span> <span class="st">&quot;en&quot;</span></a>
 <a class="sourceLine" id="cb3-7" data-line-number="7">)</a></code></pre></div>
-<p>Visualizando o uso dessa <em>#</em> em um intervalo de 1 hora.</p>
+<p>Visualizando o uso da <em>#economy</em> em um intervalo de 1 hora.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Gerando um gráfico com a frequência dos tweets no intervalo de 1 hora</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2">economia_tweets <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span><span class="kw">ts_plot</span>(<span class="st">&quot;1 hours&quot;</span>) <span class="op">+</span></a>
@@ -250,7 +237,7 @@ O projeto de exemplificação será construido utilizando a linguagem <a href="c
 <p>Utilizando a função criada para limpar o texto.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># Limpando os textos</span></a>
 <a class="sourceLine" id="cb7-2" data-line-number="2">economia_text &lt;-<span class="st"> </span><span class="kw">limpar_texto</span>(economia_text)</a></code></pre></div>
-<p>Mas, ainda utilizaremos o pacote <em>tm</em> para remover as <em>stopwords</em> dos textos, então iremos tranformar o nosso texto limpo anteriormente em um <em>corpus</em> e posteriormente removeremos as <em>stopwords</em>.</p>
+<p>Mas, ainda utilizaremos o pacote <em>tm</em> para remover as <em>stopwords</em> dos textos, então tranformaremos o nosso texto limpo anteriormente em um <em>corpus</em> e posteriormente removeremos as <em>stopwords</em>.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># Convertendo os textos em corpus</span></a>
 <a class="sourceLine" id="cb8-2" data-line-number="2">economia_corpus &lt;-<span class="st"> </span><span class="kw">VCorpus</span>(<span class="kw">VectorSource</span>(economia_text))</a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"></a>
@@ -302,11 +289,11 @@ O projeto de exemplificação será construido utilizando a linguagem <a href="c
 <a class="sourceLine" id="cb10-32" data-line-number="32"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Termos relacionados a Economia mais frequentes no Twitter&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb10-33" data-line-number="33"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Frequência&quot;, x = &quot;</span>Termos<span class="st">&quot;) +</span></a>
 <a class="sourceLine" id="cb10-34" data-line-number="34"><span class="st">  coord_flip()</span></a></code></pre></div>
-<p>Criando um <em>dendograma</em>, que é um diagrama de árvore, onde será possível visualizar o agrupamento dos nossos termos.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># Dendograma -&gt; Visualizando os grupos</span></a>
+<p>Criando um <em>dendrograma</em>, que é um diagrama de árvore, onde será possível visualizar o agrupamento dos nossos termos.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># Dendrograma -&gt; Visualizando os grupos</span></a>
 <a class="sourceLine" id="cb11-2" data-line-number="2">distancia &lt;-<span class="st"> </span><span class="kw">dist</span>(<span class="kw">t</span>(economia_doc1), <span class="dt">method =</span> <span class="st">&quot;euclidian&quot;</span>)</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">dendograma &lt;-<span class="st"> </span><span class="kw">hclust</span>(<span class="dt">d =</span> distancia, <span class="dt">method =</span> <span class="st">&quot;complete&quot;</span>)</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="kw">plot</span>(dendograma, <span class="dt">habg =</span> <span class="dv">-1</span>, <span class="dt">main =</span> <span class="st">&quot;Dendograma Tweets Economia&quot;</span>,</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">dendrograma &lt;-<span class="st"> </span><span class="kw">hclust</span>(<span class="dt">d =</span> distancia, <span class="dt">method =</span> <span class="st">&quot;complete&quot;</span>)</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="kw">plot</span>(dendrograma, <span class="dt">habg =</span> <span class="dv">-1</span>, <span class="dt">main =</span> <span class="st">&quot;Dendrograma Tweets Economia&quot;</span>,</a>
 <a class="sourceLine" id="cb11-5" data-line-number="5">     <span class="dt">xlab =</span> <span class="st">&quot;Distância&quot;</span>,</a>
 <a class="sourceLine" id="cb11-6" data-line-number="6">     <span class="dt">ylab =</span> <span class="st">&quot;Altura&quot;</span>)</a></code></pre></div>
 <p>Agora, realizaremos a <em>análise de sentimentos</em>, dos nossos tweets e para tal análise utilizaremos a função <em>get_nrc_sentiment</em> do pacote <em>syuzhet</em>, onde passaremos como parametro, os termos da nossa <em>matriz de documentos-termos</em>. E após, obtermos as emoções dos nossos termos, faremos o calculo da frequência dos sentimentos que utilizaram a <strong>#economy</strong>.</p>

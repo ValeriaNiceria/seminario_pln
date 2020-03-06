@@ -12,28 +12,12 @@ Enquanto, mineração de texto, busca extrair informação de grandes volumes de
 
 Esses foram somente, alguns exemplos das possibilidades de utilização do processamento de linguagem natural.
 
-## Conceitos:
-Precisamos, entender alguns conceitos do processamento de linguagem natural, para, quando chegar o momento de construirmos um projeto, ficar mais simples de assimilar algumas coisas que serão feitas.
-
-- **Corpus:** Conjunto de textos.
-
-- **Annotations:** Processo de adicionar anotações no texto, como flexões, dependências e etc.
-
-- **Tokenization:** Dividir o corpus em uma sequência de palavras, pontos e etc, que são conhecidos como **tokens**.
-
-- **Parts-of-Speech Tagging:** Também conhecido como POS Tagging, adiciona tags a cada token, como, por exemplo: verbo, substativo, adjetivo e etc.
-
-- **Lemmatizing ou Lemma:** Transforma a palavra na sua flexão.
-
-- **Dependency Parsing:** Encontra relação entre palavras "pais" e "filhos".
-
-
 ## Código exemplo
 
-Para exemplificar uma utilização do PLN, tentaremos responder a seguinte pergunta, "Qual é o sentimento das pessoas em relação a economia?", agora, que já definimos, algo, que tentaremos responder, precisaremos de dados, e utilizaremos os comentários do Twitter, como fonte desses dados.
+Para exemplificar uma utilização do PLN, tentaremos responder a seguinte pergunta, "Qual é o sentimento das pessoas em relação a economia?", agora, que definimos, algo, que tentaremos responder, precisaremos de dados, e utilizaremos os comentários do Twitter, como fonte desses dados.
 O projeto de exemplificação será construido utilizando a linguagem [R](cran.r) e será necessário ter os seguintes pacotes instalados em seu computador:
 
-- _'tydeverse'_ É um pacote, que possui um coleção de pacotes inclusos, para ajudar na manipulação dos dados.
+- _'tydeverse'_ É um pacote, que possui uma coleção de pacotes inclusos, para ajudar na manipulação dos dados.
 - _'rtweet'_ É um pacote, que permitirá que você se conecte ao Twitter, caso você tenha uma conta, onde você poderá realizar buscas, com no máximo 18 mil tweets.
 - _'tm'_ O pacote tm de "Text Mining" é um pacote utilizado para trabalharmos textos.
 - _'wordcloud'_ É um pacote que nos permite visualizar de forma rápida, as palavras, utilizando como critério de tamanho, a frequência.
@@ -71,7 +55,7 @@ economia_tweets <- search_tweets(
 )
 ```
 
-Visualizando o uso dessa _#_ em um intervalo de 1 hora.
+Visualizando o uso da _#economy_ em um intervalo de 1 hora.
 
 ```{r eval=FALSE}
 # Gerando um gráfico com a frequência dos tweets no intervalo de 1 hora
@@ -124,7 +108,7 @@ Utilizando a função criada para limpar o texto.
 economia_text <- limpar_texto(economia_text)
 ```
 
-Mas, ainda utilizaremos o pacote _tm_ para remover as _stopwords_ dos textos, então iremos tranformar o nosso texto limpo anteriormente em um _corpus_ e posteriormente removeremos as _stopwords_.
+Mas, ainda utilizaremos o pacote _tm_ para remover as _stopwords_ dos textos, então tranformaremos o nosso texto limpo anteriormente em um _corpus_ e posteriormente removeremos as _stopwords_.
 
 ```{r eval=FALSE}
 # Convertendo os textos em corpus
@@ -189,13 +173,13 @@ df_economia_freq %>%
 
 ```
 
-Criando um _dendograma_, que é um diagrama de árvore, onde será possível visualizar o agrupamento dos nossos termos.
+Criando um _dendrograma_, que é um diagrama de árvore, onde será possível visualizar o agrupamento dos nossos termos.
 
 ```{r eval=FALSE}
-# Dendograma -> Visualizando os grupos
+# Dendrograma -> Visualizando os grupos
 distancia <- dist(t(economia_doc1), method = "euclidian")
-dendograma <- hclust(d = distancia, method = "complete")
-plot(dendograma, habg = -1, main = "Dendograma Tweets Economia",
+dendrograma <- hclust(d = distancia, method = "complete")
+plot(dendrograma, habg = -1, main = "Dendrograma Tweets Economia",
      xlab = "Distância",
      ylab = "Altura")
 

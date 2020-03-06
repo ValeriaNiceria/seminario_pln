@@ -24,7 +24,7 @@ Agora, que sabemos que é possível obter informações, de grandes volumes de t
   Primeiramente, devemos ter um problema que queremos resolver, ou uma pergunta que desejamos responder, como, por exemplo: _O que as pessoas que estão falando sobre data science?_
 
 - **Obter os dados:**
-  Agora, que temos um questionamento, precisamos conseguir os dados que o responda, sendo assim, irei utilizar como fonte de dados, o que as pessoas estão conversando no Twitter.
+  Agora, que temos um questionamento, precisamos conseguir os dados que o responda, sendo assim, utilizarei como fonte de dados, o que as pessoas estão conversando no Twitter.
 
 - **Limpar:**
   E com os nossos dados em mãos, iremos realizar outra etapa do processo, que é a limpeza dos nossos dados, removendo caracteres especiais, como acentos, pontuações, tranformando todas as palavras em uma só estrutura, como, minúsculo e removeremos todas as **stopwords**, que são palavras irrelevantes para a pergunta que queremos responder.
@@ -36,7 +36,7 @@ Agora, que sabemos que é possível obter informações, de grandes volumes de t
   Nessa etapa, poderemos visualizar o resultado da nossa análise e assim gerar diversas opções de gráficos, como, por exemplo, nuvem de palavras.
 
 - **Extrair conhecimento:**
-  E após, seguirmos, todas as etapas, chegamos a última, e se tudo estiver ocorrido bem, durante o processo de análise, teremos transformado os nossos dados em informação e agregando ao nosso entendimento prévio sobre o assunto, como resultado, gerado um conhecimento novo, sobre o fato que estávamos analisando.
+  E chegamos a última, e se tudo estiver ocorrido bem, durante o processo de análise, teremos transformado os nossos dados em informação e agregando ao nosso entendimento prévio sobre o assunto, como resultado, gerado um conhecimento novo, sobre o fato que estávamos analisando.
   
 
 ## Conceitos
@@ -50,10 +50,10 @@ Antes, de continuarmos, vamos conhecer alguns conceitos:
 
 Chegou o momento mais divertido onde criaremos um projeto básico de text mining, e para isso, utilizaremos a linguagem de programação [R](https://cran.r-project.org/) e os seguintes pacotes:
 
-- _'rtweet'_ para conectarmos a API do Twitter.
-- _'tm'_ para realizarmos a mineração dos textos.
-- _'wordcloud'_ para criarmos nuvens de palavras.
-- _'tydeverse'_ para facilitar a manipulação dos nossos dados.
+- _'rtweet'_ É um pacote, que permitirá que você se conecte ao Twitter, caso você tenha uma conta, onde você poderá realizar buscas, com no máximo 18 mil tweets.
+- _'tm'_ O pacote tm de "Text Mining" é um pacote utilizado para trabalharmos textos.
+- _'wordcloud'_ É um pacote que nos permite visualizar de forma rápida, as palavras, utilizando como critério de tamanho, a frequência.
+- _'tydeverse'_ paÉ um pacote, que possui uma coleção de pacotes inclusos, para ajudar na manipulação dos dados.
   
 
 Primeiramente, vamos instalar os pacotes que serão necessários durante o projeto:
@@ -76,7 +76,7 @@ library(wordcloud)
 library(tidyverse)
 ```
 
-Precisaremos de dados e vamos coletar esses dados utilizando a API do Twitter, usando a função de busca _'search_tweets()'_, passaremos a # que iremos buscar, o número de tweets, onde o número máximo é 18 mil, informaremos que não queremos os retweets e a linguagem dos tweets deverá ser em inglês.
+Precisaremos de dados e vamos coletar esses dados utilizando a API do Twitter, usando a função de busca _'search_tweets()'_, passaremos a **#** que iremos buscar, o número de tweets, onde o número máximo é 18 mil, informaremos que não queremos os retweets e a linguagem dos tweets deverá ser em inglês.
 
 ```{r eval=FALSE}
 # Buscando os tweets com a #datascience
@@ -214,4 +214,40 @@ df_datascience %>%
 
 ![](_bookdown_files/bookdown_files/figure-html/freq.png)
 
+E podemos visualizar o resultado em uma nuvem de palavras, porém utilizaremos outro pacote para gerar a nuvem que é o _wordcloud2_, pois ele gera uma nuvem de palavras mais bonita que o pacote que utilizamos até o momento,  mas antes, temos que instalar o pacote em nosso computador e utilizamos o comando abaixo para realizar a instalação.
+
+```{r eval=FALSE}
+# Carregando o pacote 'devtools'
+library(devtools)
+
+# Instalando o pacote 'wordcloud2'
+devtools::install_github("lchiffon/wordcloud2")
+
+```
+
+E após, instalarmos, carregaremos o pacote _wordcloud2_ e passaremos o nosso dataframe com os termos mais frequentes para a função _wordcloud2_ e teremos como resultado o seguinte gráfico.
+
+```{r eval=FALSE}
+# Carregando o pacote 'wordcloud2'
+library(wordcloud2)
+
+wordcloud2(data = df_datascience)
+
+```
+
 ![](_bookdown_files/bookdown_files/figure-html/nuvem2.png)
+
+E podemos visualizar como os nossos termos estão agrupados, e para isso geraremos um dendrograma, que é um diagrama de árvore.
+
+```{r eval=FALSE}
+# Removendo os termos menos frequentes
+datascience_doc1 <- removeSparseTerms(datascience_document, 0.95)
+
+# Clustering 1 = Dendograma
+distancia <- dist(t(datascience_doc1), method = "euclidian")
+dendograma <- hclust(d = distancia, method = "complete")
+plot(dendograma, habg = -1, main = "Dendograma Tweets Data Science",
+     xlab = "Distância",
+     ylab = "Altura")
+
+```
