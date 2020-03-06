@@ -13,7 +13,7 @@ library(wordcloud)
 library(syuzhet)
 
 # Buscando tweets relacionados a economia
-economia_tweets <- search_tweets(
+economia_tweets_pt <- search_tweets(
   "#economia",
   n = 1500,
   include_rts = FALSE,
@@ -21,11 +21,11 @@ economia_tweets <- search_tweets(
 )
 
 # Visualizando o resultado da busca
-View(economia_tweets)
+View(economia_tweets_pt)
 
 
 # Separando o texto
-economia_text <- economia_tweets$text
+economia_text_pt <- economia_tweets_pt$text
 
 # Função para limpeza dos textos
 limpar_texto <- function(texto) {
@@ -48,14 +48,14 @@ limpar_texto <- function(texto) {
 
 
 # Limpando os textos
-economia_text <- limpar_texto(economia_text)
+economia_text_pt <- limpar_texto(economia_text_pt)
 
 
 # Convertendo os textos em corpus
-economia_corpus <- VCorpus(VectorSource(economia_text))
+economia_corpus_pt <- VCorpus(VectorSource(economia_text_pt))
 
 # Removendo stopwords 
-economia_corpus <-  economia_corpus %>%
+economia_corpus_pt <-  economia_corpus_pt %>%
   tm_map(
     content_transformer(
       function(x) iconv(x, from = 'UTF-8', to = 'ASCII//TRANSLIT')
@@ -68,50 +68,50 @@ economia_corpus <-  economia_corpus %>%
 # Lista de cores em hexadecimal
 paleta <- brewer.pal(8, "Dark2")
 
-wordcloud(economia_corpus, min.freq = 15, max.words = 250, random.order = F, colors = paleta)
+wordcloud(economia_corpus_pt, min.freq = 15, max.words = 250, random.order = F, colors = paleta)
 
 # Transformando o corpus em matriz de termos
-economia_doc <-  DocumentTermMatrix(economia_corpus)
+economia_doc_pt <-  DocumentTermMatrix(economia_corpus_pt)
 
 # Removendo os termos menos frequentes
-economia_doc1 <- removeSparseTerms(economia_doc, 0.97)
+economia_doc1_pt <- removeSparseTerms(economia_doc_pt, 0.97)
 
 # Dendograma -> Visualizando os grupos
-distancia <- dist(t(economia_doc1), method = "euclidian")
-dendograma <- hclust(d = distancia, method = "complete")
-plot(dendograma, habg = -1, main = "Dendograma Tweets Economia",
+distancia_pt <- dist(t(economia_doc1_pt), method = "euclidian")
+dendrograma_pt <- hclust(d = distancia_pt, method = "complete")
+plot(dendrograma_pt, habg = -1, main = "Dendrograma Tweets Economia",
      xlab = "Distância",
      ylab = "Altura")
 
 
 # Gerando uma matrix ordenada, com o termos mais frequentes
-economia_freq1 <- 
-  economia_doc1 %>% 
+economia_freq1_pt <- 
+  economia_doc1_pt %>% 
   as.matrix() %>% 
   colSums() %>% 
   sort(decreasing = T)
 
 # Criando um dataframe com as palavras mais frequentes
-df_economia_freq1 <- data.frame(
-  word = names(economia_freq1),
-  freq = economia_freq1
+df_economia_freq1_pt <- data.frame(
+  word = names(economia_freq1_pt),
+  freq = economia_freq1_pt
 )
 
 # Gerando uma nuvem de palavras, onde os termos esparsos foram removidos
 library(wordcloud2)
-wordcloud2(data = df_economia_freq1)
+wordcloud2(data = df_economia_freq1_pt)
 
 
 # Iniciando a análise de sentimentos ----
 
 # Obtendo os emoções
-economia_sentimento <- get_nrc_sentiment(economia_doc$dimnames$Terms, language = "portuguese")
+economia_sentimento_pt <- get_nrc_sentiment(economia_doc_pt$dimnames$Terms, language = "portuguese")
 
 
-View(economia_sentimento)
+View(economia_sentimento_pt)
 
 # Calculando a frequência dos sentimentos
-economia_sentimento_freq <- economia_sentimento %>% colSums() %>% sort(decreasing = T)
+economia_sentimento_freq_pt <- economia_sentimento_pt %>% colSums() %>% sort(decreasing = T)
 
 # Função responsável por traduzir os sentimentos e transformar em dataframe
 gerar_dataframe_sentimentos <- function(dados) {
@@ -171,13 +171,13 @@ gerar_grafico <- function(dados, titulo) {
 }
 
 # Transformando a frequência dos sentimentos em dataframe
-df_economia_sentimento <- 
-  gerar_dataframe_sentimentos(economia_sentimento_freq)
+df_economia_sentimento_pt <- 
+  gerar_dataframe_sentimentos(economia_sentimento_freq_pt)
 
 
 
 # Visualizando os sentimentos
-gerar_grafico(df_economia_sentimento, titulo = "Sentimentos das pessoas em relação a Economia")
+gerar_grafico(df_economia_sentimento_pt, titulo = "Sentimentos das pessoas em relação a Economia")
 
 
 
