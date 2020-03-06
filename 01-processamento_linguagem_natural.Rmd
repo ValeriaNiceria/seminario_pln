@@ -218,4 +218,60 @@ economia_sentimento_freq <- economia_sentimento %>%
 
 ```
 
+Com a frequência dos nossos sentimentos calculados, poderemos visualizar o resultado, mas antes, iremos traduzir os sentimentos do inglês para o português e tranformar o resultado em um dataframe para posterirmente gerarmos o gráfico.
+
+```{r eval=FALSE}
+# Criando um dataframe com os sentimentos traduzidos, que será utilizado como de-para. 
+sentimetos_traducao <- 
+    data.frame(
+      sentiment = c(
+        "positive",
+        "negative",
+        "trust",
+        "anticipation",
+        "fear",
+        "joy",
+        "sadness",
+        "surprise",
+        "anger",
+        "disgust"
+      ),
+      sentimentos = c(
+        "Positivo",
+        "Negativo",
+        "Confiança",
+        "Antecipação",
+        "Medo",
+        "Alegria",
+        "Tristeza",
+        "Surpresa",
+        "Raiva",
+        "Nojo"
+      )
+    )
+  
+# Tranformando os resultados da frequência em um dataframe 
+# e juntando ao dataframe de tradução
+df_sentimento <- 
+  data.frame(
+    sentiment = names(economia_sentimento_freq),
+    freq = economia_sentimento_freq
+  ) %>% 
+  left_join(sentimetos_traducao, by = "sentiment") %>% 
+  dplyr::select(-sentiment) %>% 
+  arrange(desc(freq))
+
+
+# Visualizando a frequência dos sentimentos em relação a #economy
+ggplot(data = df_sentimento,
+           aes(x = reorder(sentimentos, -freq), y = freq)) +
+    geom_bar(aes(fill=sentimentos), stat = "identity") +
+    theme(legend.position = "none",
+          axis.text.x = element_text(angle = 45, hjus = 1)) +
+    xlab("Sentimentos") +
+    ylab("Frequência") +
+    ggtitle(titulo)
+
+```
+
 
