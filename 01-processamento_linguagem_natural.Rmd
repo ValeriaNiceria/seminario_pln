@@ -21,7 +21,7 @@ O projeto de exemplificação será construido utilizando a linguagem [R](cran.r
 - _'rtweet'_ É um pacote, que permitirá que você se conecte ao Twitter, caso você tenha uma conta, onde você poderá realizar buscas, com no máximo 18 mil tweets.
 - _'tm'_ O pacote tm de "Text Mining" é um pacote utilizado para trabalharmos com textos.
 - _'wordcloud'_ É um pacote que nos permite visualizar de forma rápida, as palavras, utilizando como critério de tamanho, a frequência.
-- _'syuzhet'_ É um pacote, que utilizaremos para classificar as sentimentos.
+- _'syuzhet'_ É um pacote, que utilizaremos para classificar os sentimentos.
 
 ```{r eval=FALSE}
 # Instalando os pacotes
@@ -49,7 +49,7 @@ Após carregarmos os pacotes em nosso computador, vamos buscar os textos, utiliz
 # Buscando tweets relacionados a economia
 economia_tweets <- search_tweets(
   "#economy",
-  n = 1500,
+  n = 2000,
   include_rts = FALSE,
   lang = "en"
 )
@@ -161,7 +161,7 @@ df_economia_freq %>%
 
 ![](img/freq_economy.png)
 
-![](img/nuvem2_economy.png)
+<!-- ![](img/nuvem2_economy.png) -->
 
 Criando um _dendrograma_, que é um diagrama de árvore, onde será possível visualizar o agrupamento dos nossos termos.
 

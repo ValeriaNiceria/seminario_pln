@@ -24,7 +24,7 @@
 <meta name="author" content="Valéria Nicéria" />
 
 
-<meta name="date" content="2020-03-06" />
+<meta name="date" content="2020-03-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -177,7 +177,7 @@ O projeto de exemplificação será construido utilizando a linguagem <a href="c
 <li><em>‘rtweet’</em> É um pacote, que permitirá que você se conecte ao Twitter, caso você tenha uma conta, onde você poderá realizar buscas, com no máximo 18 mil tweets.</li>
 <li><em>‘tm’</em> O pacote tm de “Text Mining” é um pacote utilizado para trabalharmos com textos.</li>
 <li><em>‘wordcloud’</em> É um pacote que nos permite visualizar de forma rápida, as palavras, utilizando como critério de tamanho, a frequência.</li>
-<li><em>‘syuzhet’</em> É um pacote, que utilizaremos para classificar as sentimentos.</li>
+<li><em>‘syuzhet’</em> É um pacote, que utilizaremos para classificar os sentimentos.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Instalando os pacotes</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&quot;tydeverse&quot;</span>)</a>
@@ -196,7 +196,7 @@ O projeto de exemplificação será construido utilizando a linguagem <a href="c
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Buscando tweets relacionados a economia</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">economia_tweets &lt;-<span class="st"> </span><span class="kw">search_tweets</span>(</a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="st">&quot;#economy&quot;</span>,</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="dt">n =</span> <span class="dv">1500</span>,</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="dt">n =</span> <span class="dv">2000</span>,</a>
 <a class="sourceLine" id="cb3-5" data-line-number="5">  <span class="dt">include_rts =</span> <span class="ot">FALSE</span>,</a>
 <a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="dt">lang =</span> <span class="st">&quot;en&quot;</span></a>
 <a class="sourceLine" id="cb3-7" data-line-number="7">)</a></code></pre></div>
@@ -279,7 +279,7 @@ O projeto de exemplificação será construido utilizando a linguagem <a href="c
 <a class="sourceLine" id="cb9-33" data-line-number="33"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Frequência&quot;, x = &quot;</span>Termos<span class="st">&quot;) +</span></a>
 <a class="sourceLine" id="cb9-34" data-line-number="34"><span class="st">  coord_flip()</span></a></code></pre></div>
 <p><img src="img/freq_economy.png" /></p>
-<p><img src="img/nuvem2_economy.png" /></p>
+<!-- ![](img/nuvem2_economy.png) -->
 <p>Criando um <em>dendrograma</em>, que é um diagrama de árvore, onde será possível visualizar o agrupamento dos nossos termos.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># Dendrograma -&gt; Visualizando os grupos</span></a>
 <a class="sourceLine" id="cb10-2" data-line-number="2">distancia &lt;-<span class="st"> </span><span class="kw">dist</span>(<span class="kw">t</span>(economia_doc1), <span class="dt">method =</span> <span class="st">&quot;euclidian&quot;</span>)</a>
